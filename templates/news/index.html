@@ -1,0 +1,124 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+首页
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="../../static/css/news/index.css">
+{% endblock %}
+
+{% block main_contain %}
+    <div class="main-contain">
+      <!-- banner start -->
+        <div class="banner">
+            <ul class="pic">
+
+            </ul>
+            <a href="javascript:void(0);" class="btn prev">
+                <i class="PyWhich py-arrow-left"></i></a>
+            <a href="javascript:void(0);" class="btn next">
+                <i class="PyWhich py-arrow-right"></i></a>
+            <ul class="tab">
+
+            </ul>
+        </div>
+      <!-- banner end -->
+
+      <!-- content start -->
+      <div class="content">
+        <!-- recommend-news start -->
+          <ul class="recommend-news">
+              {% for n in hot_news %}
+              <li>
+                  <a href="{% url 'news:news_detail' n.news_id %}" target="_blank">
+                      <div class="recommend-thumbnail">
+                          <img src="{{ n.news.image_url }}" alt="title">
+                      </div>
+                      <p class="info">{{ n.news.title }}</p>
+                  </a>
+              </li>
+              {% endfor %}
+          </ul>
+        <!-- recommend-news end -->
+
+        <!--  news-nav start-->
+          <nav class="news-nav">
+              <ul class="clearfix">
+                  <li class="active"><a href="javascript:void(0)">最新资讯</a></li>
+                  {% for tag in tags %}
+                      <li><a href="javascript:void(0)" data-id="{{ tag.id }}">{{ tag.name }}</a>
+                      </li>
+                  {% endfor %}
+
+              </ul>
+          </nav>
+        <!--  news-nav end -->
+
+        <!-- news-contain start -->
+          <div class="news-contain">
+              <ul class="news-list">
+
+              </ul>
+          </div>
+        <!-- news-contain end -->
+
+        <!-- btn-more start -->
+{#        <a href="javascript:void(0);" class="btn-more">加载更多</a>#}
+        <!-- btn-more end -->
+      </div>
+      <!-- content end -->
+    </div>
+    <aside class="side">
+            <div class="side-activities">
+                <h3 class="activities-title">在线课堂<a href="javascript:void(0)">更多</a></h3>
+                <div class="activities-img">
+                    <a href="javascript:void(0);" target="_blank">
+                        <img src="https://res.shiguangkey.com//file/201804/26/20180426142628123364782.jpg"
+                             alt="title">
+                    </a>
+                    <p class="activities-tips">对话国外小姐姐</p>
+                </div>
+                <ul class="activities-list">
+                    <li>
+                        <a href="javascript:void(0);" target="_blank">
+                            <span class="active-status active-start">报名中</span>
+                            <span class="active-title"><a href="https://www.shiguangkey.com/course/2432"> Django 项目班</a></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" target="_blank">
+                            <span class="active-status active-end">已结束</span>
+                            <span class="active-title"><a href="https://www.shiguangkey.com/course/2321">Python入门基础班</a></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="side-attention clearfix">
+                <h3 class="attention-title">关注我</h3>
+                <ul class="side-attention-address">
+                    <li>
+                        <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-GitHub"></i>Taka</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-zhihu"
+                                                                         style="color:rgb(0, 108, 226);"></i>Taka</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-weibo"
+                                                                         style="color:rgb(245,92,110);"></i>Taka</a>
+                    </li>
+                </ul>
+                <div class="side-attention-qr">
+                    <p>扫码关注</p>
+                </div>
+            </div>
+
+
+        </aside>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/news/index.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
