@@ -21,9 +21,10 @@ from news import views
 app_name = 'news'
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('', views.IndexView.as_view(), name='index'),
+    path('', views.IndexView.as_view(), name='indexex'),
     path('news/', views.NewListView.as_view(), name='news_list'),
     path('news/banners/', views.NewsBanner.as_view(), name='news_banners'),
     path('news/<int:news_id>/', views.NewsDetailView.as_view(), name='news_detail'),
     path('news/<int:news_id>/comments/', views.NewsCommentView.as_view(), name='news_comment'),
+    path('search/', views.SearchView(), name='search'),
 ]

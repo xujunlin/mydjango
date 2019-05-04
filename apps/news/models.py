@@ -114,3 +114,5 @@ class Banner(ModelBase):
 
     def __str__(self):
         return '<轮播图{}>'.format(self.id)
+
+

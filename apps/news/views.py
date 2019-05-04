@@ -1,13 +1,17 @@
 from django.shortcuts import render
 from django.views import View
-from django.core.paginator import Paginator, EmptyPage
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from time import strftime
 from django.http import Http404
+
+from mysite import settings
+from haystack.views import SearchView as _SearchView
 
 from news import models
 from news import constants
 from config.json_fun import to_json_data
 from config.res_code import Code, error_map
+
 
 import logging
 import json
@@ -184,3 +188,33 @@ class NewsCommentView(View):
         news_comment.save()
         # 4返回前端
         return to_json_data(data=news_comment.to_dict_data())
+
+
+class SearchView(_SearchView):
+    # 模版文件
+    template = 'news/search.html'
+
+    # 重写响应方式，如果请求参数q为空，返回模型News的热门新闻数据，否则根据参数q搜索相关数据
+    def create_response(self):
+        kw = self.request.GET.get('q', '')
+        if not kw:
+            show_all = True
+            hot_news = models.HotNews.objects.select_related('news'). \
+                only('news__title', 'news__image_url', 'news__id'). \
+                filter(is_delete=False).order_by('priority', '-news__clicks')
+
+            paginator = Paginator(hot_news, settings.HAYSTACK_SEARCH_RESULTS_PER_PAGE)
+            try:
+                page = paginator.page(int(self.request.GET.get('page', 1)))
+            except PageNotAnInteger:
+                # 如果参数page的数据类型不是整型，则返回第一页数据
+                page = paginator.page(1)
+            except EmptyPage:
+                # 用户访问的页数大于实际页数，则返回最后一页的数据
+                page = paginator.page(paginator.num_pages)
+            return render(self.request, self.template, locals())
+        else:
+            show_all = False
+            qs = super(SearchView, self).create_response()
+            return qs
+

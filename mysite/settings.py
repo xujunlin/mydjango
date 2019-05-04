@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'doc',
     'course',
     'users',
-    'verifications'
+    'verifications',
+    'haystack'
 ]
 
 MIDDLEWARE = [
@@ -225,3 +226,27 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': '127.0.0.1:8002'
+    },
+}
+
+# Haystack
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://127.0.0.1:8002/',  # 此处为elasticsearch运行的服务器ip地址，端口号默认为9200
+        'INDEX_NAME': 'mysite',  # 指定elasticsearch建立的索引库的名称
+    },
+}
+
+# 设置每页显示的数据量
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 5
+# 当数据库改变时，会自动更新索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+# 站点域名和端口配置
+SITE_DOMAIN_PORT = "http://127.0.0.1:8000"
