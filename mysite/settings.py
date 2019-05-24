@@ -250,3 +250,6 @@ HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 # 站点域名和端口配置
 SITE_DOMAIN_PORT = "http://127.0.0.1:8000"
+
+# fastdfs服务的站点
+FASTDFS_SERVER_DOMAIN = "http://127.0.0.1:8888/"

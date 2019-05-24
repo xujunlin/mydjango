@@ -23,7 +23,7 @@
     <nav class="nav">
       <ul class="menu">
         <li><a href="{% url 'news:indexex' %}">首页</a></li>
-        <li><a href="../course/course.html">在线课堂</a></li>
+        <li><a href="{% url 'course:course_list' %}">在线课堂</a></li>
         <li><a href="{% url 'doc:index' %}">下载文档</a></li>
         <li><a href="{% url 'news:search' %}">搜索</a></li>
       </ul>
@@ -36,9 +36,9 @@
               <i class="PyWhich py-user"></i>
               <span>{{ user.username }}</span>
               <ul class="author-menu">
-                  {% if user.is_staff %}
-                  <li><a href="javascript:void(0);">后台管理</a></li>
-                  {% endif %}
+{#                  {% if user.is_staff %}#}
+                  <li><a href="{% url 'admin:index' %}">后台管理</a></li>
+{#                  {% endif %}#}
                   <li><a href="{% url 'users:logout' %}">退出登录</a></li>
               </ul>
           </div>

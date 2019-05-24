@@ -21,5 +21,6 @@ from course import views
 app_name = 'course'
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('course/', views.course, name='course')
+    path('', views.course_list, name='course_list'),
+    path('<int:course_id>/', views.CourseDetailView.as_view(), name='course_detail'),
 ]
