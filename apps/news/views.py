@@ -199,9 +199,9 @@ class SearchView(_SearchView):
         kw = self.request.GET.get('q', '')
         if not kw:
             show_all = True
-            hot_news = models.HotNews.objects.select_related('news'). \
-                only('news__title', 'news__image_url', 'news__id'). \
-                filter(is_delete=False).order_by('priority', '-news__clicks')
+            hot_news = models.HotNews.objects.select_related('news').only(
+                'news__title', 'news__image_url', 'news__id'
+            ).filter(is_delete=False).order_by('priority', '-news__clicks')
 
             paginator = Paginator(hot_news, settings.HAYSTACK_SEARCH_RESULTS_PER_PAGE)
             try:

@@ -3,14 +3,23 @@ import logging
 from datetime import datetime
 from urllib.parse import urlencode
 
+import qiniu
+from config.secrets import qiniu_secret_info
+from django.http import JsonResponse
 
+from django.contrib.auth.models import Group, Permission
 from django.core.paginator import Paginator, EmptyPage
 from django.db.models import Count
 from django.shortcuts import render
 from django.views import View
 
+from users.models import Users
+from admin import forms
 from doc.models import Doc
 from news import models
+from course.models import Course, CourseCategory
+from course.models import Teacher
+
 from config.json_fun import to_json_data
 from config.res_code import Code, error_map
 from config import paginator_script
@@ -20,7 +29,7 @@ from config.fastdfs.fdfs import FDFS_Client
 
 logger = logging.getLogger('django')
 # Create your views here.
-
+# 主页
 class IndexView(View):
     """
     /admin/
@@ -34,6 +43,7 @@ class IndexView(View):
         return render(request, 'admin/index/index.html')
 
 
+# 标签管理
 class TagManageView(View):
     """
     /admin/tags/
@@ -80,6 +90,7 @@ class TagManageView(View):
             return to_json_data(errno=Code.PARAMERR, errmsg='标签不能为空')
 
 
+# 标签编辑
 class TagEditView(View):
     """
     /admin/tag/<int:tag_id>
@@ -126,6 +137,7 @@ class TagEditView(View):
             return to_json_data(errno=Code.PARAMERR, errmsg='标签不存在')
 
 
+# 热门新闻管理
 class HotNewsManageView(View):
     """
     /admin/hotnews/
@@ -141,6 +153,7 @@ class HotNewsManageView(View):
         return render(request, 'admin/news/news_hot.html', locals())
 
 
+# 热门新闻编辑
 class HotNewsEditView(View):
     """
     /admin/hotnews/<int:tag_id>/
@@ -186,6 +199,7 @@ class HotNewsEditView(View):
         return to_json_data(errmsg='热门文章更新成功')
 
 
+# 热门新闻新增
 class HotNewsAddView(View):
     """
     /admin/hotnews/add/
@@ -234,6 +248,7 @@ class HotNewsAddView(View):
         return to_json_data(errmsg='热门新闻修改成功')
 
 
+# 新闻搜索
 class NewsByTagIdView(View):
     """
     /admin/tags/<int:tag_id>/news/
@@ -246,12 +261,19 @@ class NewsByTagIdView(View):
         })
 
 
+# 新闻管理
 class NewsManageView(View):
-    """"""
-# 请求方式：get
-# 携带参数：start_time, end_time title, author_name, tag_id
-# 返回参数：title, author_username, tag_name, update_time, id
+    """
+    请求方式：get
+    携带参数：start_time, end_time title, author_name, tag_id
+    返回参数：title, author_username, tag_name, update_time, id
+    /admin/news/
+    """
     def get(self, request):
+        """
+        :param request: 验证参数
+        :return: 前端渲染页面
+        """
         tags = models.Tag.objects.only('id', 'name').filter(is_delete=False)
         newses = models.News.objects.select_related('author', 'tag').only(
             'title', 'author__username', 'tag__name', 'update_time'
@@ -337,6 +359,70 @@ class NewsManageView(View):
         return render(request, 'admin/news/news_manage.html', context=context)
 
 
+# 新闻编辑
+class NewsEditView(View):
+    """
+    /admin/news/<int:new_id>/
+    """
+    def delete(self, request, news_id):
+        """
+        删除文章
+        """
+        news = models.News.objects.only('id').filter(id=news_id).first()
+        if news:
+            news.is_delete = True
+            # 更新参数
+            news.save(update_fields = ['is_delete', 'update_time'])
+            return to_json_data(errmsg='文章删除成功')
+        else:
+            return to_json_data(errno=Code.PARAMERR, errmsg='文章不存在')
+
+    def get(self, request, news_id):
+        """
+        :param request:
+        :param news_id:
+        :return:
+        """
+        news = models.News.objects.filter(is_delete=False, id=news_id).first()
+        if not news:
+            return to_json_data(errno=Code.PARAMERR, errmsg="文章不存在")
+        tags = models.Tag.objects.only('id', 'name').filter(is_delete=False)
+        return render(request, 'admin/news/news_pub.html', locals())
+
+    def put(self, request, news_id):
+        """
+        :param request:
+        :param news_id:
+        :return:
+        """
+        news = models.News.objects.filter(id=news_id).first()
+        # 验证参数
+        if not news:
+            return to_json_data(errno=Code.PARAMERR, errmsg="文章不存在")
+        json_data = request.body
+        if not json_data:
+            return to_json_data(errno=Code.PARAMERR, errmsg=error_map[Code.PARAMERR])
+        dict_data = json.loads(json_data.decode('utf8'))
+        form = forms.NewsPubForm(data=dict_data)
+        if form.is_valid():
+            news.title = form.cleaned_data.get('title')
+            news.digest = form.cleaned_data.get('digest')
+            news.content = form.cleaned_data.get('content')
+            news.image_url = form.cleaned_data.get('image_url')
+            news.tag = form.cleaned_data.get('tag')
+            news.save()
+            return to_json_data(errmsg='文章更新成功')
+        else:
+            # 定义一个错误信息列表
+            err_msg_list = []
+            for item in form.errors.get_json_data().values():
+                err_msg_list.append(item[0].get('message'))
+            err_msg_str = '/'.join(err_msg_list)  # 拼接错误信息为一个字符串
+
+            return to_json_data(errno=Code.PARAMERR, errmsg=err_msg_str)
+
+
+# 新闻发布
 class NewsPubView(View):
     """
     /admin/news/pub/
@@ -347,7 +433,34 @@ class NewsPubView(View):
         tags = models.Tag.objects.only('id', 'name').filter(is_delete=False)
         return render(request, 'admin/news/news_pub.html', locals())
 
+    def post(self,request):
+        # 1.从前端获取参数
+        json_data = request.body
+        if not json_data:
+            return to_json_data(errno=Code.PARAMERR, errmsg=error_map[Code.PARAMERR])
+        # 2.将json转化为dict
+        dict_data = json.loads(json_data.decode('utf8'))
+        form = forms.NewsPubForm(data=dict_data)
+        if form.is_valid():
+            # 3.保存到数据库
+            # 只有form继承了forms.ModelForm 才能使用这种方法
+            news_instance = form.save(commit=False)
+            news_instance.author_id = request.user.id
+            # news_instance.author_id = 1     # for test
+            news_instance.save()
+            # 4. 返回给前端
+            return to_json_data(errmsg='文章创建成功')
+        else:
+            # 定义一个错误信息列表
+            err_msg_list = []
+            for item in form.errors.get_json_data().values():
+                err_msg_list.append(item[0].get('message'))
+            err_msg_str = '/'.join(err_msg_list)  # 拼接错误信息为一个字符串
 
+            return to_json_data(errno=Code.PARAMERR, errmsg=err_msg_str)
+
+
+# 新闻升级
 class NewsUploadImage(View):
     """"""
 
@@ -381,6 +494,55 @@ class NewsUploadImage(View):
                 return to_json_data(data={'image_url': image_url}, errmsg='图片上传成功')
 
 
+# 七牛云token
+class UploadToken(View):
+    """
+    """
+    def get(self, request):
+        access_key = qiniu_secret_info.QI_NIU_ACCESS_KEY
+        secret_key = qiniu_secret_info.QI_NIU_SECRET_KEY
+        bucket_name = qiniu_secret_info.QI_NIU_BUCKET_NAME
+        # 构建鉴权对象
+        q = qiniu.Auth(access_key, secret_key)
+        token = q.upload_token(bucket_name)
+
+        return JsonResponse({"uptoken": token})
+
+
+# 上传图片
+class MarkDownUploadImage(View):
+    """"""
+    def post(self, request):
+        image_file = request.FILES.get('editormd-image-file')
+        if not image_file:
+            logger.info('从前端获取图片失败')
+            return JsonResponse({'success': 0, 'message': '从前端获取图片失败'})
+
+        if image_file.content_type not in ('image/jpeg', 'image/png', 'image/gif'):
+            return JsonResponse({'success': 0, 'message': '不能上传非图片文件'})
+
+        try:
+            image_ext_name = image_file.name.split('.')[-1]
+        except Exception as e:
+            logger.info('图片拓展名异常：{}'.format(e))
+            image_ext_name = 'jpg'
+
+        try:
+            upload_res = FDFS_Client.upload_by_buffer(image_file.read(), file_ext_name=image_ext_name)
+        except Exception as e:
+            logger.error('图片上传出现异常：{}'.format(e))
+            return JsonResponse({'success': 0, 'message': '图片上传异常'})
+        else:
+            if upload_res.get('Status') != 'Upload successed.':
+                logger.info('图片上传到FastDFS服务器失败')
+                return JsonResponse({'success': 0, 'message': '图片上传到服务器失败'})
+            else:
+                image_name = upload_res.get('Remote file_id')
+                image_url = settings.FASTDFS_SERVER_DOMAIN + image_name
+                return JsonResponse({'success': 1, 'message': '图片上传成功', 'url': image_url})
+
+
+# 轮播图
 class BannerManageView(View):
     """"""
     def get(self, request):
@@ -392,10 +554,12 @@ class BannerManageView(View):
         return render(request, 'admin/news/news_banner.html', locals())
 
 
+# 编辑轮播图
 class BannerEditView(View):
     """
      /admin/banners/<int:banner_id>/
     """
+
     def delete(self, request, banner_id):
         banner = models.Banner.objects.only('id').filter(id=banner_id).first()
         if banner:
@@ -412,7 +576,7 @@ class BannerEditView(View):
         dict_data = json.loads(json_data.decode('utf8'))
         try:
             priority = int(dict_data.get('priority'))
-            priority_list = [i for i, _ in models.HotNews.PRI_CHOICES]
+            priority_list = [i for i, _ in models.Banner.PRI_CHOICES]
             if priority not in priority_list:
                 return to_json_data(errno=Code.PARAMERR, errmsg='轮播图优先级设置错误')
         except Exception as e:
@@ -429,9 +593,14 @@ class BannerEditView(View):
         return to_json_data(errmsg='轮播图更新成功')
 
 
+# 新增轮播图
 class BannerAddView(View):
     """"""
     def get(self, request):
+        """
+        :param request:
+        :return:
+        """
         tags = models.Tag.objects.select_related('news').values(
             'id', 'name'
         ).annotate(num_news=Count('news')).filter(is_delete=False).order_by('-num_news')
@@ -440,6 +609,41 @@ class BannerAddView(View):
         return render(request, 'admin/news/news_banner_add.html', locals())
 
 
+    def post(self, request):
+        json_data = request.body
+        if not json_data:
+            return to_json_data(errno=Code.PARAMERR, errmsg=error_map[Code.PARAMERR])
+        # 2.将json转化为dict
+        dict_data = json.loads(json_data.decode('utf8'))
+        try:
+            news_id = int(dict_data.get('news_id'))
+        except Exception as e:
+            logger.info('热门文章：\n{}'.format(e))
+            return to_json_data(errno=Code.PARAMERR, errmsg='参数错误')
+        if not models.News.objects.filter(id=news_id).exists():
+            return to_json_data(errno=Code.PARAMERR, errmsg='文章不存在')
+        try:
+            priority = int(dict_data.get('priority'))
+            priority_list = [i for i, _ in models.HotNews.PRI_CHOICES]
+            if priority not in priority_list:
+                return to_json_data(errno=Code.PARAMERR, errmsg='热门文章优先级设置错误')
+        except Exception as e:
+            logger.info('热门文章：\n{}'.format(e))
+            return to_json_data(errno=Code.PARAMERR, errmsg='参数错误')
+        try:
+            image_url = dict_data.get('image_url')
+        except Exception as e:
+            logger.info('图片url：\n{}'.format(e))
+            return to_json_data(errno=Code.PARAMERR, errmsg='图片上传错误')
+        banner_tuple = models.Banner.objects.get_or_create(news_id=news_id)
+        banner, is_created = banner_tuple
+        banner.priority = priority
+        banner.image_url = image_url
+        banner.save()
+        return to_json_data(errmsg='轮播图修改成功')
+
+
+# 文章管理
 class DocsManageView(View):
     """"""
     def get(self, request):
@@ -447,14 +651,14 @@ class DocsManageView(View):
         return render(request, 'admin/doc/docs_manage.html', locals())
 
 
+# 文档编辑
 class DocsEditView(View):
-    """"""
     """
-    /admin/docs/<int:banner_id>/
+    /admin/docs/<int:doc_id>/
     """
-    def delete(self, request, banner_id):
+    def delete(self, request, doc_id):
         # 获取参数并验证
-        doc = Doc.objects.only('id').filter(id=banner_id).first()
+        doc = Doc.objects.only('id').filter(id=doc_id, is_delete=False).first()
         if doc:
             doc.is_delete = True
             # 更新参数
@@ -463,5 +667,202 @@ class DocsEditView(View):
         else:
             return to_json_data(errno=Code.PARAMERR, errmsg='轮播图不存在')
 
+    def get(self, request, doc_id):
+        doc = Doc.objects.only('id').filter(id=doc_id).first()
+        if not doc:
+            return to_json_data(errno=Code.PARAMERR, errmsg="文档不存在")
+        tags = models.Tag.objects.only('id', 'name').filter(is_delete=False)
+        return render(request, 'admin/doc/docs_pub.html', locals())
+
+    def put(self, request, doc_id):
+        json_data = request.body
+        if not json_data:
+            return to_json_data(errno=Code.PARAMERR, errmsg='参数不存在')
+        dict_data = json.loads(json_data.decode('utf8'))
+
+        doc = Doc.objects.filter(id=doc_id, is_delete=False).first()
+        form = forms.DocsPubForm(data=dict_data)
+        if form.is_valid():
+            doc.title = form.cleaned_data.get('title')
+            doc.desc = form.cleaned_data.get('desc')
+            doc.file_url = form.cleaned_data.get('file_url')
+            doc.image_url = form.cleaned_data.get('image_url')
+            doc.save()
+            return to_json_data(errmsg='文档更新成功')
+        else:
+            # 定义一个错误信息列表
+            err_msg_list = []
+            for item in form.errors.get_json_data().values():
+                err_msg_list.append(item[0].get('message'))
+            err_msg_str = '/'.join(err_msg_list)  # 拼接错误信息为一个字符串
+
+            return to_json_data(errno=Code.PARAMERR, errmsg=err_msg_str)
 
 
+# 文档发布
+class DocsPubView(View):
+    """
+    /admin/docs/pub/
+    """
+    def get(self,request):
+        return render(request, 'admin/doc/docs_pub.html')
+
+    def post(self, request):
+        json_data = request.body
+        if not json_data:
+            return to_json_data(errno=Code.PARAMERR, errmsg=error_map[Code.PARAMERR])
+        dict_data = json.loads(json_data.decode("utf8"))
+        form = forms.DocsPubForm(data=dict_data)
+        if form.is_valid():
+            # 3.保存到数据库
+            # 只有form继承了forms.ModelForm 才能使用这种方法
+            docs_instance = form.save(commit=False)
+            docs_instance.author_id = request.user.id
+            # news_instance.author_id = 1     # for test
+            docs_instance.save()
+            # 4. 返回给前端
+            return to_json_data(errmsg='文档创建成功')
+        else:
+            # 定义一个错误信息列表
+            err_msg_list = []
+            for item in form.errors.get_json_data().values():
+                err_msg_list.append(item[0].get('message'))
+            err_msg_str = '/'.join(err_msg_list)  # 拼接错误信息为一个字符串
+
+            return to_json_data(errno=Code.PARAMERR, errmsg=err_msg_str)
+
+
+# 文档上传
+class DocsUploadView(View):
+    """
+    文档上传
+    /admin/doc/files/
+    """
+    def post(self, request):
+        text_file = request.FILES.get('text_file')
+        if not text_file:
+            logger.info('从前端获取文件失败!')
+            return to_json_data(errno=Code.NODATA, errmsg='从前端获取文件失败')
+        if text_file.content_type not in ('application/octet-stream', 'application/pdf',
+                                          'application/zip', 'text/plain', 'application/x-rar'):
+            return to_json_data(errno=Code.DATAERR, errmsg='不能上传非正常文件')
+
+        try:
+            text_ext_name = text_file.name.split('.')[-1]
+        except Exception as e:
+            logger.info('文件拓展名异常：{}'.format(e))
+            text_ext_name = 'pdf'
+
+        try:
+            upload_res = FDFS_Client.upload_by_buffer(text_file.read(), file_ext_name=text_ext_name)
+        except Exception as e:
+            logger.error('文件上传出现异常：{}'.format(e))
+            return to_json_data(errno=Code.UNKOWNERR, errmsg='文件上传异常')
+        else:
+            if upload_res.get('Status') != 'Upload successed.':
+                logger.info('文件上传到FastDFS服务器失败')
+                return to_json_data(Code.UNKOWNERR, errmsg='文件上传到服务器失败')
+            else:
+                text_name = upload_res.get('Remote file_id')
+                text_url = settings.FASTDFS_SERVER_DOMAIN + text_name
+                return to_json_data(data={'text_file': text_url}, errmsg='文件上传成功')
+
+
+# 在线课堂管理
+class CoursesManageView(View):
+    """
+    /admin/course/
+    """
+    def get(self, request):
+        courses = Course.objects.all()
+        return render(request, 'admin/course/courses_manage.html', locals())
+
+
+# 课堂编辑
+class CoursesEditView(View):
+    """
+    /admin/courses/<int:course_id>
+    """
+    def delete(self, request, course_id):
+        """"""
+        courses = Course.objects.only('id').filter(is_delete=False, id=course_id).first()
+        if courses:
+            courses.is_delete = True
+            courses.save(update_field=['is_delete', 'update_time'])
+            return to_json_data(errmsg="在线课堂删除成功")
+
+    def get(self, request, course_id):
+        """"""
+        course = Course.objects.filter(is_delete=False, id=course_id).first()
+        teachers = Teacher.objects.all()
+        categories = CourseCategory.objects.only('name').filter(is_delete=False)
+        if not course:
+            return to_json_data(errno=Code.PARAMERR, errmsg=error_map[Code.PARAMERR])
+        return render(request, 'admin/course/courses_pub.html', locals())
+
+    def put(self, request, course_id):
+        """"""
+        json_data = request.body
+        if not json_data:
+            return to_json_data(errno=Code.PARAMERR, errmsg=error_map[Code.PARAMERR])
+        dict_data = json.loads(json_data.decode("utf8"))
+        course = Course.objects.filter(id=course_id, is_delete=False).first()
+        form = forms.CoursesPubForm(data=dict_data)
+        if form.is_valid():
+            for attr, value in form.cleaned_data.items():
+                setattr(course, attr, value)
+            course.save()
+            return to_json_data(errmsg='课程更新成功')
+        else:
+            # 定义一个错误信息列表
+            err_msg_list = []
+            for item in form.errors.get_json_data().values():
+                err_msg_list.append(item[0].get('message'))
+            err_msg_str = '/'.join(err_msg_list)  # 拼接错误信息为一个字符串
+
+            return to_json_data(errno=Code.PARAMERR, errmsg=err_msg_str)
+
+
+# 课堂发布
+class CoursesPubView(View):
+    """
+    /admin/courses/pub/
+    """
+    def get(self,request):
+        teachers = Teacher.objects.only('name').filter(is_delete=False)
+        categories = CourseCategory.objects.only('name').filter(is_delete=False)
+        return render(request,'admin/course/courses_pub.html',locals())
+
+    def post(self,request):
+        json_data = request.body
+        if not json_data:
+            return to_json_data(errno=Code.PARAMERR, errmsg=error_map[Code.PARAMERR])
+        dict_data = json.loads(json_data.decode('utf8'))
+
+        form = forms.CoursesPubForm(data=dict_data)
+        if form.is_valid():
+            courses_instance = form.save()
+            return to_json_data(errmsg='课程发布成功')
+        else:
+            # 定义一个错误信息列表
+            err_msg_list = []
+            for item in form.errors.get_json_data().values():
+                err_msg_list.append(item[0].get('message'))
+            err_msg_str = '/'.join(err_msg_list)  # 拼接错误信息为一个字符串
+
+            return to_json_data(errno=Code.PARAMERR, errmsg=err_msg_str)
+
+
+class GroupManageView(View):
+    """"""
+    def get(self, request):
+        Group.objects.values('id', 'name').annotate(
+            num_users=Count('user')
+        ).order_by('-num_users', 'id')
+        return render(request, 'admin/users/groups_manage.html', locals())
+
+
+class GroupsEditView(View):
+    """
+    /admin/group/<int:group_di>/
+    """

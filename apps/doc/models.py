@@ -17,5 +17,6 @@ class Doc(ModelBase):
         db_table = 'tb_docs'
         verbose_name = '文档'
         verbose_name_plural = verbose_name
+
     def __str__(self):
         return self.title

@@ -1,4 +1,5 @@
 from config.models import ModelBase
+from django.core.validators import MinLengthValidator
 from django.db import models
 
 
@@ -21,7 +22,7 @@ class Tag(ModelBase):
 class News(ModelBase):
     """
     """
-    title = models.CharField(max_length=150, verbose_name="标题", help_text="标题")
+    title = models.CharField(max_length=150, validators=[MinLengthValidator(1)], verbose_name="标题", help_text="标题")
     digest = models.CharField(max_length=200, verbose_name="摘要", help_text="摘要")
     content = models.TextField(verbose_name="内容", help_text="内容")
     clicks = models.IntegerField(default=0, verbose_name="点击量", help_text="点击量")
@@ -116,3 +117,5 @@ class Banner(ModelBase):
         return '<轮播图{}>'.format(self.id)
 
 
+class Doc(object):
+    pass

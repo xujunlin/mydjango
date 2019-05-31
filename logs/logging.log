@@ -8373,3 +8373,2148 @@ INFO 2019-05-24 17:17:37,630 basehttp 124 "GET /admin/news/?start_time=&end_time
 INFO 2019-05-24 17:18:48,270 basehttp 124 "GET /admin/news/?start_time=&end_time=&title=web&author_name=&tag_id=0 HTTP/1.1" 200 17324
 INFO 2019-05-24 17:19:07,340 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17715
 INFO 2019-05-24 17:19:11,376 basehttp 124 "GET /admin/news/?start_time=&end_time=&title=web&author_name=&tag_id=0 HTTP/1.1" 200 17324
+INFO 2019-05-24 17:26:28,468 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+WARNING 2019-05-24 17:26:28,662 log 228 Not Found: /admin/token/
+WARNING 2019-05-24 17:26:28,671 basehttp 124 "GET /admin/token/ HTTP/1.1" 404 6976
+INFO 2019-05-24 19:40:48,509 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12801
+INFO 2019-05-24 19:40:48,573 basehttp 124 "GET /static/js/admin/doc/docs_manage.js HTTP/1.1" 304 0
+INFO 2019-05-24 19:40:53,145 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17715
+ERROR 2019-05-24 19:47:41,541 log 228 Internal Server Error: /admin/news/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 343, in get
+    return render(request, 'admin/news/news_manage.html', context=context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'news_edit' with no arguments not found. 1 pattern(s) tried: ['admin\\/news\\/(?P<news_id>[0-9]+)\\/$']
+ERROR 2019-05-24 19:47:41,556 basehttp 124 "GET /admin/news/ HTTP/1.1" 500 207402
+ERROR 2019-05-24 19:50:35,913 log 228 Internal Server Error: /admin/news/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 343, in get
+    return render(request, 'admin/news/news_manage.html', context=context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'news_edit' with no arguments not found. 1 pattern(s) tried: ['admin\\/news\\/(?P<news_id>[0-9]+)\\/$']
+ERROR 2019-05-24 19:50:35,927 basehttp 124 "GET /admin/news/ HTTP/1.1" 500 207402
+INFO 2019-05-24 20:25:10,054 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17595
+INFO 2019-05-24 20:25:17,990 basehttp 124 "GET /admin/news/?page=2&start_time=&end_time=&title=&author_name=&tag_id=0 HTTP/1.1" 200 17778
+INFO 2019-05-24 20:25:18,599 basehttp 124 "GET /admin/news/?page=2&start_time=&end_time=&title=&author_name=&tag_id=0 HTTP/1.1" 200 17778
+INFO 2019-05-24 20:25:19,165 basehttp 124 "GET /admin/news/?page=1&start_time=&end_time=&title=&author_name=&tag_id=0 HTTP/1.1" 200 17595
+INFO 2019-05-24 22:04:04,463 basehttp 124 "GET /admin/news/?page=1&start_time=&end_time=&title=&author_name=&tag_id=0 HTTP/1.1" 200 17595
+ERROR 2019-05-24 22:04:09,803 log 228 Internal Server Error: /admin/news/1173/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 360, in delete
+    news.save(update_fields = ['is_delete', 'update_time'])
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/db/models/base.py", line 717, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/db/models/base.py", line 757, in save_base
+    update_fields=update_fields, raw=raw, using=using,
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/dispatch/dispatcher.py", line 175, in send
+    for receiver in self._live_receivers(sender)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/dispatch/dispatcher.py", line 175, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/signals.py", line 52, in handle_save
+    index.update_object(instance, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 284, in update_object
+    backend.update(self, [instance])
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/backends/elasticsearch_backend.py", line 168, in update
+    prepped_data = index.full_prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 208, in full_prepare
+    self.prepared_data = self.prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 199, in prepare
+    self.prepared_data[field.index_fieldname] = field.prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 206, in prepare
+    return self.convert(super(CharField, self).prepare(obj))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 83, in prepare
+    return self.prepare_template(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 183, in prepare_template
+    t = loader.select_template(template_names)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: search/indexes/news/news_text.txt
+ERROR 2019-05-24 22:04:09,810 basehttp 124 "DELETE /admin/news/1173/ HTTP/1.1" 500 18541
+INFO 2019-05-24 22:04:55,898 basehttp 124 "GET /admin/news/?page=1&start_time=&end_time=&title=&author_name=&tag_id=0 HTTP/1.1" 200 17578
+ERROR 2019-05-24 22:04:58,386 log 228 Internal Server Error: /admin/news/1172/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 360, in delete
+    news.save(update_fields = ['is_delete', 'update_time'])
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/db/models/base.py", line 717, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/db/models/base.py", line 757, in save_base
+    update_fields=update_fields, raw=raw, using=using,
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/dispatch/dispatcher.py", line 175, in send
+    for receiver in self._live_receivers(sender)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/dispatch/dispatcher.py", line 175, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/signals.py", line 52, in handle_save
+    index.update_object(instance, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 284, in update_object
+    backend.update(self, [instance])
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/backends/elasticsearch_backend.py", line 168, in update
+    prepped_data = index.full_prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 208, in full_prepare
+    self.prepared_data = self.prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 199, in prepare
+    self.prepared_data[field.index_fieldname] = field.prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 206, in prepare
+    return self.convert(super(CharField, self).prepare(obj))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 83, in prepare
+    return self.prepare_template(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 183, in prepare_template
+    t = loader.select_template(template_names)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: search/indexes/news/news_text.txt
+ERROR 2019-05-24 22:04:58,397 basehttp 124 "DELETE /admin/news/1172/ HTTP/1.1" 500 18541
+INFO 2019-05-24 22:10:23,495 basehttp 124 "GET /admin/news/?page=1&start_time=&end_time=&title=&author_name=&tag_id=0 HTTP/1.1" 200 17574
+ERROR 2019-05-24 22:10:28,299 log 228 Internal Server Error: /admin/news/1171/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 360, in delete
+    news.save(update_fields = ['is_delete', 'update_time'])
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/db/models/base.py", line 717, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/db/models/base.py", line 757, in save_base
+    update_fields=update_fields, raw=raw, using=using,
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/dispatch/dispatcher.py", line 175, in send
+    for receiver in self._live_receivers(sender)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/dispatch/dispatcher.py", line 175, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/signals.py", line 52, in handle_save
+    index.update_object(instance, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 284, in update_object
+    backend.update(self, [instance])
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/backends/elasticsearch_backend.py", line 168, in update
+    prepped_data = index.full_prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 208, in full_prepare
+    self.prepared_data = self.prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 199, in prepare
+    self.prepared_data[field.index_fieldname] = field.prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 206, in prepare
+    return self.convert(super(CharField, self).prepare(obj))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 83, in prepare
+    return self.prepare_template(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 183, in prepare_template
+    t = loader.select_template(template_names)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: search/indexes/news/news_text.txt
+ERROR 2019-05-24 22:10:28,309 basehttp 124 "DELETE /admin/news/1171/ HTTP/1.1" 500 18541
+INFO 2019-05-24 22:13:49,613 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-24 22:14:00,610 basehttp 124 "GET /admin/news/1171/ HTTP/1.1" 200 75
+INFO 2019-05-24 22:16:38,077 basehttp 124 "GET /admin/news/?page=1&start_time=&end_time=&title=&author_name=&tag_id=0 HTTP/1.1" 200 17556
+INFO 2019-05-24 22:16:38,217 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-24 22:16:38,222 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-24 22:16:38,227 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-24 22:16:38,225 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-24 22:16:38,312 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-24 22:16:38,315 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-24 22:16:38,324 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-24 22:16:38,371 basehttp 124 "GET /static/css/admin/base/bootstrap-datepicker.min.css HTTP/1.1" 200 15731
+INFO 2019-05-24 22:16:38,386 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-24 22:16:38,391 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 22:16:38,392 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-24 22:16:38,393 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-24 22:16:38,504 basehttp 124 "GET /static/js/admin/news/bootstrap-datepicker.min.js HTTP/1.1" 200 33599
+INFO 2019-05-24 22:16:38,509 basehttp 124 "GET /static/js/admin/news/bootstrap-datepicker.zh-CN.min.js HTTP/1.1" 200 593
+INFO 2019-05-24 22:16:38,534 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-24 22:16:38,543 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-24 22:16:38,549 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-24 22:16:38,562 basehttp 124 "GET /static/js/admin/news/news_manage.js HTTP/1.1" 200 3095
+INFO 2019-05-24 22:16:38,643 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+ERROR 2019-05-24 22:24:17,080 log 228 Internal Server Error: /admin/news/1170/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 361, in delete
+    news.save(update_fields = ['is_delete', 'update_time'])
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/db/models/base.py", line 717, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/db/models/base.py", line 757, in save_base
+    update_fields=update_fields, raw=raw, using=using,
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/dispatch/dispatcher.py", line 175, in send
+    for receiver in self._live_receivers(sender)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/dispatch/dispatcher.py", line 175, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/signals.py", line 52, in handle_save
+    index.update_object(instance, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 284, in update_object
+    backend.update(self, [instance])
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/backends/elasticsearch_backend.py", line 168, in update
+    prepped_data = index.full_prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 208, in full_prepare
+    self.prepared_data = self.prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 199, in prepare
+    self.prepared_data[field.index_fieldname] = field.prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 206, in prepare
+    return self.convert(super(CharField, self).prepare(obj))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 83, in prepare
+    return self.prepare_template(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 183, in prepare_template
+    t = loader.select_template(template_names)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: search/indexes/news/news_text.txt
+INFO 2019-05-24 22:25:57,674 basehttp 124 "GET /admin/news/?page=1&start_time=&end_time=&title=&author_name=&tag_id=0 HTTP/1.1" 200 17564
+INFO 2019-05-24 22:25:57,755 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-24 22:25:57,763 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-24 22:25:57,774 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-24 22:25:57,777 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-24 22:25:57,819 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-24 22:25:57,824 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-24 22:25:57,836 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-24 22:25:57,866 basehttp 124 "GET /static/css/admin/base/bootstrap-datepicker.min.css HTTP/1.1" 200 15731
+INFO 2019-05-24 22:25:57,874 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-24 22:25:57,875 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-24 22:25:57,876 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-24 22:25:57,925 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-24 22:25:57,946 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 22:25:57,974 basehttp 124 "GET /static/js/admin/news/bootstrap-datepicker.zh-CN.min.js HTTP/1.1" 200 593
+INFO 2019-05-24 22:25:57,977 basehttp 124 "GET /static/js/admin/news/news_manage.js HTTP/1.1" 200 3095
+INFO 2019-05-24 22:25:57,994 basehttp 124 "GET /static/js/admin/news/bootstrap-datepicker.min.js HTTP/1.1" 200 33599
+INFO 2019-05-24 22:25:58,010 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-24 22:25:58,015 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-24 22:25:58,129 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-24 22:31:54,066 basehttp 124 "GET /admin/news/?page=1&start_time=&end_time=&title=&author_name=&tag_id=0 HTTP/1.1" 200 17574
+INFO 2019-05-24 22:31:54,092 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-24 22:31:54,109 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-24 22:31:54,130 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-24 22:31:54,139 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-24 22:31:54,145 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-24 22:31:54,174 basehttp 124 "GET /static/css/admin/base/bootstrap-datepicker.min.css HTTP/1.1" 200 15731
+INFO 2019-05-24 22:31:54,169 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-24 22:31:54,188 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-24 22:31:54,204 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-24 22:31:54,206 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 22:31:54,216 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-24 22:31:54,220 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-24 22:31:54,243 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-24 22:31:54,250 basehttp 124 "GET /static/js/admin/news/news_manage.js HTTP/1.1" 200 3095
+INFO 2019-05-24 22:31:54,257 basehttp 124 "GET /static/js/admin/news/bootstrap-datepicker.min.js HTTP/1.1" 200 33599
+INFO 2019-05-24 22:31:54,260 basehttp 124 "GET /static/js/admin/news/bootstrap-datepicker.zh-CN.min.js HTTP/1.1" 200 593
+INFO 2019-05-24 22:31:54,274 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-24 22:31:54,277 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-24 22:31:54,313 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+ERROR 2019-05-24 22:31:56,734 log 228 Internal Server Error: /admin/news/1168/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 361, in delete
+    news.save()
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/db/models/base.py", line 717, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/db/models/base.py", line 757, in save_base
+    update_fields=update_fields, raw=raw, using=using,
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/dispatch/dispatcher.py", line 175, in send
+    for receiver in self._live_receivers(sender)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/dispatch/dispatcher.py", line 175, in <listcomp>
+    for receiver in self._live_receivers(sender)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/signals.py", line 52, in handle_save
+    index.update_object(instance, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 284, in update_object
+    backend.update(self, [instance])
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/backends/elasticsearch_backend.py", line 168, in update
+    prepped_data = index.full_prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 208, in full_prepare
+    self.prepared_data = self.prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/indexes.py", line 199, in prepare
+    self.prepared_data[field.index_fieldname] = field.prepare(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 206, in prepare
+    return self.convert(super(CharField, self).prepare(obj))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 83, in prepare
+    return self.prepare_template(obj)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/haystack/fields.py", line 183, in prepare_template
+    t = loader.select_template(template_names)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: search/indexes/news/news_text.txt
+ERROR 2019-05-24 22:31:56,744 basehttp 124 "DELETE /admin/news/1168/ HTTP/1.1" 500 18555
+INFO 2019-05-24 22:49:47,354 basehttp 124 "GET /admin/news/?page=1&start_time=&end_time=&title=&author_name=&tag_id=0 HTTP/1.1" 200 17570
+INFO 2019-05-24 22:49:47,384 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-24 22:49:47,388 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-24 22:49:47,422 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-24 22:49:47,427 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-24 22:49:47,429 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-24 22:49:47,429 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-24 22:49:47,425 basehttp 124 "GET /static/css/admin/base/bootstrap-datepicker.min.css HTTP/1.1" 200 15731
+INFO 2019-05-24 22:49:47,440 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-24 22:49:47,447 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-24 22:49:47,462 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-24 22:49:47,463 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 22:49:47,482 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-24 22:49:47,493 basehttp 124 "GET /static/js/admin/news/bootstrap-datepicker.zh-CN.min.js HTTP/1.1" 200 593
+INFO 2019-05-24 22:49:47,497 basehttp 124 "GET /static/js/admin/news/news_manage.js HTTP/1.1" 200 3095
+INFO 2019-05-24 22:49:47,498 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-24 22:49:47,510 basehttp 124 "GET /static/js/admin/news/bootstrap-datepicker.min.js HTTP/1.1" 200 33599
+INFO 2019-05-24 22:49:47,529 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-24 22:49:47,532 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-24 22:49:47,709 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-24 22:49:58,759 basehttp 124 "GET / HTTP/1.1" 200 8388
+INFO 2019-05-24 22:49:59,146 basehttp 124 "GET /news/banners/ HTTP/1.1" 200 734
+INFO 2019-05-24 22:49:59,151 basehttp 124 "GET /news/?tag_id=0&page=1 HTTP/1.1" 200 2982
+INFO 2019-05-24 22:50:01,151 basehttp 124 "GET /search/ HTTP/1.1" 200 15592
+INFO 2019-05-24 22:50:01,205 basehttp 124 "GET /static/css/news/search.css HTTP/1.1" 200 3536
+INFO 2019-05-24 22:50:05,699 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-24 22:58:11,594 basehttp 124 "GET /search/ HTTP/1.1" 200 15592
+INFO 2019-05-24 22:58:12,355 basehttp 124 "GET /search/ HTTP/1.1" 200 15592
+INFO 2019-05-24 22:58:21,045 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-24 22:59:15,352 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-24 22:59:15,378 basehttp 124 "GET /static/css/news/search.css HTTP/1.1" 200 3536
+INFO 2019-05-24 22:59:15,421 basehttp 124 "GET /static/css/base/reset.css HTTP/1.1" 200 1427
+INFO 2019-05-24 22:59:15,453 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 22:59:15,472 basehttp 124 "GET /static/css/base/common.css HTTP/1.1" 200 3498
+INFO 2019-05-24 22:59:15,473 basehttp 124 "GET /static/css/base/side.css HTTP/1.1" 200 4430
+INFO 2019-05-24 22:59:15,507 basehttp 124 "GET /static/js/commons.js HTTP/1.1" 200 2422
+INFO 2019-05-24 22:59:15,509 basehttp 124 "GET /static/js/index.js HTTP/1.1" 200 1510
+INFO 2019-05-24 22:59:17,783 basehttp 124 "GET /static/images/wechat.jpg HTTP/1.1" 200 41182
+INFO 2019-05-24 22:59:24,902 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-24 22:59:24,923 basehttp 124 "GET /static/css/base/reset.css HTTP/1.1" 200 1427
+INFO 2019-05-24 22:59:24,929 basehttp 124 "GET /static/css/base/common.css HTTP/1.1" 200 3498
+INFO 2019-05-24 22:59:24,946 basehttp 124 "GET /static/css/base/side.css HTTP/1.1" 200 4430
+INFO 2019-05-24 22:59:24,951 basehttp 124 "GET /static/css/news/search.css HTTP/1.1" 200 3536
+INFO 2019-05-24 22:59:24,966 basehttp 124 "GET /static/js/commons.js HTTP/1.1" 200 2422
+INFO 2019-05-24 22:59:24,969 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 22:59:24,973 basehttp 124 "GET /static/js/index.js HTTP/1.1" 200 1510
+INFO 2019-05-24 22:59:29,207 basehttp 124 "GET /static/images/wechat.jpg HTTP/1.1" 200 41182
+INFO 2019-05-24 22:59:33,604 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-24 22:59:33,641 basehttp 124 "GET /static/css/base/reset.css HTTP/1.1" 200 1427
+INFO 2019-05-24 22:59:33,657 basehttp 124 "GET /static/css/base/side.css HTTP/1.1" 200 4430
+INFO 2019-05-24 22:59:33,664 basehttp 124 "GET /static/css/base/common.css HTTP/1.1" 200 3498
+INFO 2019-05-24 22:59:33,694 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 22:59:33,695 basehttp 124 "GET /static/css/news/search.css HTTP/1.1" 200 3536
+INFO 2019-05-24 22:59:33,698 basehttp 124 "GET /static/js/index.js HTTP/1.1" 200 1510
+INFO 2019-05-24 22:59:33,703 basehttp 124 "GET /static/js/commons.js HTTP/1.1" 200 2422
+INFO 2019-05-24 22:59:33,758 basehttp 124 "GET /static/images/wechat.jpg HTTP/1.1" 200 41182
+INFO 2019-05-24 22:59:38,982 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-24 22:59:39,006 basehttp 124 "GET /static/css/base/reset.css HTTP/1.1" 200 1427
+INFO 2019-05-24 22:59:39,011 basehttp 124 "GET /static/css/base/common.css HTTP/1.1" 200 3498
+INFO 2019-05-24 22:59:39,031 basehttp 124 "GET /static/css/base/side.css HTTP/1.1" 200 4430
+INFO 2019-05-24 22:59:39,054 basehttp 124 "GET /static/js/commons.js HTTP/1.1" 200 2422
+INFO 2019-05-24 22:59:39,075 basehttp 124 "GET /static/css/news/search.css HTTP/1.1" 200 3536
+INFO 2019-05-24 22:59:39,086 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 22:59:39,092 basehttp 124 "GET /static/js/index.js HTTP/1.1" 200 1510
+INFO 2019-05-24 22:59:46,756 basehttp 124 "GET /static/images/wechat.jpg HTTP/1.1" 200 41182
+INFO 2019-05-24 22:59:59,025 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-24 22:59:59,041 basehttp 124 "GET /static/css/base/reset.css HTTP/1.1" 200 1427
+INFO 2019-05-24 22:59:59,080 basehttp 124 "GET /static/css/news/search.css HTTP/1.1" 200 3536
+INFO 2019-05-24 22:59:59,082 basehttp 124 "GET /static/css/base/side.css HTTP/1.1" 200 4430
+INFO 2019-05-24 22:59:59,082 basehttp 124 "GET /static/css/base/common.css HTTP/1.1" 200 3498
+INFO 2019-05-24 22:59:59,110 basehttp 124 "GET /static/js/commons.js HTTP/1.1" 200 2422
+INFO 2019-05-24 22:59:59,128 basehttp 124 "GET /static/js/index.js HTTP/1.1" 200 1510
+INFO 2019-05-24 22:59:59,135 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 22:59:59,158 basehttp 124 "GET /static/images/wechat.jpg HTTP/1.1" 200 41182
+INFO 2019-05-24 23:00:01,600 basehttp 124 "GET /search/?q= HTTP/1.1" 200 15592
+INFO 2019-05-24 23:00:01,616 basehttp 124 "GET /static/css/base/reset.css HTTP/1.1" 200 1427
+INFO 2019-05-24 23:00:01,649 basehttp 124 "GET /static/css/base/common.css HTTP/1.1" 200 3498
+INFO 2019-05-24 23:00:01,652 basehttp 124 "GET /static/css/news/search.css HTTP/1.1" 200 3536
+INFO 2019-05-24 23:00:01,659 basehttp 124 "GET /static/css/base/side.css HTTP/1.1" 200 4430
+INFO 2019-05-24 23:00:01,661 basehttp 124 "GET /static/js/index.js HTTP/1.1" 200 1510
+INFO 2019-05-24 23:00:01,676 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 23:00:01,677 basehttp 124 "GET /static/js/commons.js HTTP/1.1" 200 2422
+INFO 2019-05-24 23:00:01,730 basehttp 124 "GET /media/jichujiaochen.jpeg HTTP/1.1" 200 11286
+INFO 2019-05-24 23:00:01,732 basehttp 124 "GET /media/python_gui.jpg HTTP/1.1" 200 24129
+INFO 2019-05-24 23:00:01,739 basehttp 124 "GET /static/images/wechat.jpg HTTP/1.1" 200 41182
+INFO 2019-05-24 23:00:01,743 basehttp 124 "GET /media/linux.jpg HTTP/1.1" 200 62189
+INFO 2019-05-24 23:00:05,205 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-24 23:00:05,221 basehttp 124 "GET /static/css/base/reset.css HTTP/1.1" 200 1427
+INFO 2019-05-24 23:00:05,225 basehttp 124 "GET /static/css/base/common.css HTTP/1.1" 200 3498
+INFO 2019-05-24 23:00:05,236 basehttp 124 "GET /static/css/base/side.css HTTP/1.1" 200 4430
+INFO 2019-05-24 23:00:05,254 basehttp 124 "GET /static/css/news/search.css HTTP/1.1" 200 3536
+INFO 2019-05-24 23:00:05,262 basehttp 124 "GET /static/js/commons.js HTTP/1.1" 200 2422
+INFO 2019-05-24 23:00:05,265 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-24 23:00:05,279 basehttp 124 "GET /static/js/index.js HTTP/1.1" 200 1510
+INFO 2019-05-24 23:00:19,136 basehttp 124 "GET /static/images/wechat.jpg HTTP/1.1" 200 41182
+INFO 2019-05-24 23:00:40,077 basehttp 124 "GET / HTTP/1.1" 200 8388
+INFO 2019-05-24 23:00:40,389 basehttp 124 "GET /news/banners/ HTTP/1.1" 200 734
+INFO 2019-05-24 23:00:40,404 basehttp 124 "GET /news/?tag_id=0&page=1 HTTP/1.1" 200 2982
+INFO 2019-05-24 23:00:42,607 basehttp 124 "GET /search/ HTTP/1.1" 200 15592
+INFO 2019-05-24 23:00:45,329 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-24 23:36:21,948 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 17171
+INFO 2019-05-24 23:36:22,624 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 17171
+INFO 2019-05-24 23:36:33,094 basehttp 124 "GET /search/?q=wode HTTP/1.1" 200 6955
+INFO 2019-05-24 23:36:37,027 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 17171
+INFO 2019-05-25 14:07:17,162 basehttp 124 "GET / HTTP/1.1" 200 8388
+INFO 2019-05-25 14:07:17,926 basehttp 124 "GET /news/banners/ HTTP/1.1" 200 734
+WARNING 2019-05-25 14:07:18,144 log 228 Not Found: /favicon.ico
+WARNING 2019-05-25 14:07:18,145 basehttp 124 "GET /favicon.ico HTTP/1.1" 404 4283
+INFO 2019-05-25 14:07:18,392 basehttp 124 "GET /news/?tag_id=0&page=1 HTTP/1.1" 200 2982
+INFO 2019-05-25 14:07:19,112 basehttp 124 "GET /search/ HTTP/1.1" 200 15592
+INFO 2019-05-25 14:07:21,656 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-25 14:10:29,387 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 6955
+INFO 2019-05-25 14:11:49,151 basehttp 124 "GET /doc/ HTTP/1.1" 200 9421
+INFO 2019-05-25 14:11:49,312 basehttp 124 "GET /static/css/doc/docDownload.css HTTP/1.1" 200 2122
+INFO 2019-05-25 14:11:49,348 basehttp 124 "GET /media/fluent_python_1.jpg HTTP/1.1" 200 18248
+INFO 2019-05-25 14:11:49,351 basehttp 124 "GET /media/Python_Cookbook_%E7%AC%AC%E4%B8%89%E7%89%88.jpg HTTP/1.1" 200 18404
+INFO 2019-05-25 14:11:49,384 basehttp 124 "GET /media/doc_banner_1.jpg HTTP/1.1" 200 51898
+INFO 2019-05-25 14:11:49,395 basehttp 124 "GET /media/%E5%83%8F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E5%AE%B6%E4%B8%80%E6%A0%B7%E6%80%9D%E8%80%83Python.jpg HTTP/1.1" 200 44525
+INFO 2019-05-25 14:11:49,471 basehttp 124 "GET /media/Python%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B.jpg HTTP/1.1" 200 21302
+INFO 2019-05-25 14:11:49,551 basehttp 124 "GET /media/hard_way_to_learn_python.jpg HTTP/1.1" 200 114185
+INFO 2019-05-25 14:11:49,572 basehttp 124 "GET /media/django%E9%A1%B9%E7%9B%AE%E7%8F%AD_%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D.jpg HTTP/1.1" 200 158750
+INFO 2019-05-25 14:11:49,905 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 17171
+INFO 2019-05-25 14:11:51,191 basehttp 124 "GET /search/ HTTP/1.1" 200 15592
+INFO 2019-05-25 14:11:53,751 basehttp 124 "GET /search/?q=python HTTP/1.1" 200 17171
+INFO 2019-05-25 14:11:58,413 basehttp 124 "GET /admin/ HTTP/1.1" 200 9735
+INFO 2019-05-25 14:12:00,994 basehttp 124 "GET /admin/tags/ HTTP/1.1" 200 12601
+INFO 2019-05-25 14:12:01,116 basehttp 124 "GET /static/js/admin/news/tags_manage.js HTTP/1.1" 304 0
+INFO 2019-05-25 14:12:03,990 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17570
+INFO 2019-05-25 14:12:11,161 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17570
+INFO 2019-05-25 14:12:16,857 basehttp 124 "GET /admin/hotnews/ HTTP/1.1" 200 12409
+INFO 2019-05-25 14:12:16,924 basehttp 124 "GET /static/js/admin/news/news_hot.js HTTP/1.1" 304 0
+INFO 2019-05-25 14:12:20,403 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 21207
+INFO 2019-05-25 14:12:20,473 basehttp 124 "GET /static/js/admin/news/news_banner.js HTTP/1.1" 304 0
+INFO 2019-05-25 14:12:24,337 basehttp 124 "GET /admin/tags/ HTTP/1.1" 200 12601
+INFO 2019-05-25 14:12:29,373 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 14:12:29,414 basehttp 124 "GET /static/js/admin/news/news_pub.js HTTP/1.1" 304 0
+WARNING 2019-05-25 14:12:29,731 log 228 Not Found: /admin/token/
+WARNING 2019-05-25 14:12:29,732 basehttp 124 "GET /admin/token/ HTTP/1.1" 404 7172
+ERROR 2019-05-25 14:12:35,886 views 421 图片上传出现异常：[-] Error: 2, No such file or directory
+INFO 2019-05-25 14:12:35,887 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 81
+ERROR 2019-05-25 14:12:55,409 views 421 图片上传出现异常：[-] Error: 2, No such file or directory
+INFO 2019-05-25 14:12:55,412 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 81
+ERROR 2019-05-25 14:13:10,234 views 421 图片上传出现异常：[-] Error: 2, No such file or directory
+INFO 2019-05-25 14:13:10,236 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 81
+INFO 2019-05-25 14:13:12,343 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+WARNING 2019-05-25 14:13:12,503 log 228 Not Found: /admin/token/
+WARNING 2019-05-25 14:13:12,505 basehttp 124 "GET /admin/token/ HTTP/1.1" 404 7172
+ERROR 2019-05-25 14:13:16,675 views 421 图片上传出现异常：[-] Error: 2, No such file or directory
+INFO 2019-05-25 14:13:16,677 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 81
+INFO 2019-05-25 14:13:23,037 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-25 14:17:48,058 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 14:17:48,166 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-25 14:17:48,232 basehttp 124 "GET /static/plugins/markdown_editor/css/editormd.css HTTP/1.1" 200 82624
+INFO 2019-05-25 14:17:48,354 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-25 14:17:48,467 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-25 14:17:48,510 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-25 14:17:48,541 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-25 14:17:48,551 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-25 14:17:48,553 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-25 14:17:48,560 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-25 14:17:48,620 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-25 14:17:48,621 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-25 14:17:48,643 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-25 14:17:48,661 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-25 14:17:48,700 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-25 14:17:48,711 basehttp 124 "GET /static/plugins/markdown_editor/editormd.js HTTP/1.1" 200 163324
+INFO 2019-05-25 14:17:48,743 basehttp 124 "GET /static/js/admin/news/news_pub.js HTTP/1.1" 200 5955
+INFO 2019-05-25 14:17:48,757 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-25 14:17:48,882 basehttp 124 "GET /static/plugins/markdown_editor/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+INFO 2019-05-25 14:17:48,950 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-25 14:17:49,032 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-25 14:17:49,379 basehttp 124 "GET /static/plugins/markdown_editor/examples/test.md HTTP/1.1" 200 0
+WARNING 2019-05-25 14:17:49,440 log 228 Not Found: /admin/token/
+WARNING 2019-05-25 14:17:49,441 basehttp 124 "GET /admin/token/ HTTP/1.1" 404 7172
+INFO 2019-05-25 14:17:49,517 basehttp 124 "GET /static/plugins/markdown_editor/images/loading.gif HTTP/1.1" 200 7726
+INFO 2019-05-25 14:17:49,572 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.js HTTP/1.1" 200 221231
+INFO 2019-05-25 14:17:49,584 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/dialog/dialog.css HTTP/1.1" 200 502
+INFO 2019-05-25 14:17:49,590 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/fold/foldgutter.css HTTP/1.1" 200 435
+INFO 2019-05-25 14:17:49,596 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/search/matchesonscrollbar.css HTTP/1.1" 200 188
+INFO 2019-05-25 14:17:49,597 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.css HTTP/1.1" 200 5312
+INFO 2019-05-25 14:17:49,692 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/modes.min.js HTTP/1.1" 200 205547
+INFO 2019-05-25 14:17:49,741 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addons.min.js HTTP/1.1" 200 39288
+INFO 2019-05-25 14:17:49,790 basehttp 124 "GET /static/plugins/markdown_editor/lib/marked.min.js HTTP/1.1" 200 19256
+INFO 2019-05-25 14:17:49,827 basehttp 124 "GET /static/plugins/markdown_editor/lib/prettify.min.js HTTP/1.1" 200 17973
+INFO 2019-05-25 14:17:49,892 basehttp 124 "GET /static/plugins/markdown_editor/lib/raphael.min.js HTTP/1.1" 200 92705
+INFO 2019-05-25 14:17:49,913 basehttp 124 "GET /static/plugins/markdown_editor/lib/underscore.min.js HTTP/1.1" 200 16487
+INFO 2019-05-25 14:17:49,949 basehttp 124 "GET /static/plugins/markdown_editor/lib/flowchart.min.js HTTP/1.1" 200 19807
+INFO 2019-05-25 14:17:49,974 basehttp 124 "GET /static/plugins/markdown_editor/lib/jquery.flowchart.min.js HTTP/1.1" 200 1396
+INFO 2019-05-25 14:17:50,013 basehttp 124 "GET /static/plugins/markdown_editor/lib/sequence-diagram.min.js HTTP/1.1" 200 87695
+INFO 2019-05-25 14:17:59,654 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-25 14:23:29,772 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-25 14:39:27,157 basehttp 124 "GET /admin/tags/ HTTP/1.1" 200 12601
+INFO 2019-05-25 14:39:29,781 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+WARNING 2019-05-25 14:39:29,949 log 228 Not Found: /admin/token/
+WARNING 2019-05-25 14:39:29,951 basehttp 124 "GET /admin/token/ HTTP/1.1" 404 7172
+INFO 2019-05-25 14:39:33,027 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17570
+INFO 2019-05-25 14:48:00,216 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17570
+INFO 2019-05-25 14:48:00,618 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12801
+INFO 2019-05-25 14:48:00,702 basehttp 124 "GET /static/js/admin/doc/docs_manage.js HTTP/1.1" 304 0
+INFO 2019-05-25 14:48:04,849 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17570
+INFO 2019-05-25 14:48:09,917 basehttp 124 "GET /admin/hotnews/ HTTP/1.1" 200 12409
+INFO 2019-05-25 14:48:13,220 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 21207
+INFO 2019-05-25 14:48:14,531 basehttp 124 "GET /admin/banners/add/ HTTP/1.1" 200 12353
+INFO 2019-05-25 14:48:14,550 basehttp 124 "GET /static/js/admin/news/news_banner_add.js HTTP/1.1" 304 0
+INFO 2019-05-25 14:48:17,188 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-25 14:48:19,684 basehttp 124 "GET /admin/tags/1/news/ HTTP/1.1" 200 27231
+WARNING 2019-05-25 14:48:23,280 base 93 Method Not Allowed (POST): /admin/banners/add/
+WARNING 2019-05-25 14:48:23,281 log 228 Method Not Allowed: /admin/banners/add/
+WARNING 2019-05-25 14:48:23,283 basehttp 124 "POST /admin/banners/add/ HTTP/1.1" 405 0
+INFO 2019-05-25 14:49:07,744 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-25 14:49:21,309 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17570
+INFO 2019-05-25 15:41:29,153 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17570
+INFO 2019-05-25 15:41:35,376 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 15:41:35,544 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-25 16:04:15,692 basehttp 124 "GET /admin/tags/ HTTP/1.1" 200 12601
+INFO 2019-05-25 16:04:17,033 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17570
+INFO 2019-05-25 16:05:11,439 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17570
+INFO 2019-05-25 16:05:13,096 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 16:05:13,275 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-25 16:05:29,062 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+WARNING 2019-05-25 16:05:32,907 base 93 Method Not Allowed (POST): /admin/news/pub/
+WARNING 2019-05-25 16:05:32,909 log 228 Method Not Allowed: /admin/news/pub/
+WARNING 2019-05-25 16:05:32,911 basehttp 124 "POST /admin/news/pub/ HTTP/1.1" 405 0
+INFO 2019-05-25 16:32:43,869 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 16:32:44,063 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-25 16:32:55,780 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+ERROR 2019-05-25 16:32:59,380 log 228 Internal Server Error: /admin/news/pub/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 409, in post
+    form = forms.NewsPubForm(data=dict_data)
+AttributeError: module 'django.forms' has no attribute 'NewsPubForm'
+ERROR 2019-05-25 16:32:59,385 basehttp 124 "POST /admin/news/pub/ HTTP/1.1" 500 15620
+INFO 2019-05-25 16:33:47,253 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 16:33:47,454 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-25 16:33:58,426 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-25 16:34:01,852 basehttp 124 "POST /admin/news/pub/ HTTP/1.1" 200 78
+INFO 2019-05-25 16:34:02,951 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 16:34:03,101 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-25 16:34:08,935 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17531
+INFO 2019-05-25 16:34:15,545 basehttp 124 "DELETE /admin/news/1174/ HTTP/1.1" 200 78
+INFO 2019-05-25 16:34:18,577 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 16:34:18,757 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-25 16:34:25,470 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-25 16:34:29,326 basehttp 124 "POST /admin/news/pub/ HTTP/1.1" 200 78
+INFO 2019-05-25 16:34:30,454 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 16:34:30,580 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-25 16:34:34,380 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17534
+INFO 2019-05-25 16:35:44,436 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17534
+INFO 2019-05-25 17:02:24,335 basehttp 124 "GET /admin/hotnews/ HTTP/1.1" 200 12409
+INFO 2019-05-25 17:02:26,186 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 17:02:26,356 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-25 17:02:30,604 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17534
+INFO 2019-05-25 17:17:58,629 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17534
+INFO 2019-05-25 17:21:15,069 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17654
+INFO 2019-05-25 17:21:17,630 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-25 17:21:17,809 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+ERROR 2019-05-25 17:26:42,183 log 228 Internal Server Error: /admin/news/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 347, in get
+    return render(request, 'admin/news/news_manage.html', context=context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'admin_edit' not found. 'admin_edit' is not a valid view function or pattern name.
+ERROR 2019-05-25 17:26:42,197 basehttp 124 "GET /admin/news/ HTTP/1.1" 500 204728
+ERROR 2019-05-25 17:27:08,883 log 228 Internal Server Error: /admin/news/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 347, in get
+    return render(request, 'admin/news/news_manage.html', context=context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'news_edit' with no arguments not found. 1 pattern(s) tried: ['admin\\/news\\/(?P<news_id>[0-9]+)\\/$']
+ERROR 2019-05-25 17:27:08,895 basehttp 124 "GET /admin/news/ HTTP/1.1" 500 207289
+INFO 2019-05-25 17:42:05,107 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17534
+INFO 2019-05-25 19:55:23,392 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17534
+ERROR 2019-05-25 21:27:50,640 log 228 Internal Server Error: /admin/news/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 347, in get
+    return render(request, 'admin/news/news_manage.html', context=context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'news_edit' with no arguments not found. 1 pattern(s) tried: ['admin\\/news\\/(?P<news_id>[0-9]+)\\/$']
+ERROR 2019-05-25 21:27:50,684 basehttp 124 "GET /admin/news/ HTTP/1.1" 500 207289
+ERROR 2019-05-25 21:28:15,381 log 228 Internal Server Error: /admin/news/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 347, in get
+    return render(request, 'admin/news/news_manage.html', context=context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 156, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 194, in compile_nodelist
+    return parser.parse()
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 266, in do_extends
+    nodelist = parser.parse()
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 209, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 810, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 1375, in url
+    args.append(parser.compile_filter(value))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 663, in __init__
+    "from '%s'" % (token[upto:], token))
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '{{' from '{{'
+ERROR 2019-05-25 21:28:15,393 basehttp 124 "GET /admin/news/ HTTP/1.1" 500 215199
+ERROR 2019-05-25 21:29:04,602 log 228 Internal Server Error: /admin/news/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 347, in get
+    return render(request, 'admin/news/news_manage.html', context=context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'news_edit {{ news.id }}' not found. 'news_edit {{ news.id }}' is not a valid view function or pattern name.
+ERROR 2019-05-25 21:29:04,613 basehttp 124 "GET /admin/news/ HTTP/1.1" 500 202923
+INFO 2019-05-25 21:29:55,336 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17686
+INFO 2019-05-25 21:29:55,413 basehttp 124 "GET /static/js/admin/news/news_manage.js HTTP/1.1" 304 0
+INFO 2019-05-26 14:48:30,226 basehttp 124 "GET / HTTP/1.1" 200 8388
+INFO 2019-05-26 14:48:32,662 basehttp 124 "GET /static/js/news/index.js HTTP/1.1" 304 0
+INFO 2019-05-26 14:48:32,960 basehttp 124 "GET /news/banners/ HTTP/1.1" 200 734
+INFO 2019-05-26 14:48:32,988 basehttp 124 "GET /news/?tag_id=0&page=1 HTTP/1.1" 200 2735
+WARNING 2019-05-26 14:48:33,072 log 228 Not Found: /favicon.ico
+WARNING 2019-05-26 14:48:33,073 basehttp 124 "GET /favicon.ico HTTP/1.1" 404 4283
+INFO 2019-05-26 14:48:35,093 basehttp 124 "GET /admin/ HTTP/1.1" 200 9735
+INFO 2019-05-26 14:48:37,851 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17686
+INFO 2019-05-26 21:49:28,256 basehttp 124 "DELETE /admin/news/1175/ HTTP/1.1" 200 78
+INFO 2019-05-26 21:49:33,543 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17722
+INFO 2019-05-26 21:49:33,664 basehttp 124 "GET /static/js/admin/news/news_manage.js HTTP/1.1" 304 0
+INFO 2019-05-26 21:49:35,219 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-26 21:49:35,258 basehttp 124 "GET /static/js/admin/news/news_pub.js HTTP/1.1" 304 0
+INFO 2019-05-26 21:49:35,441 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-26 21:49:46,930 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-26 21:49:50,842 basehttp 124 "POST /admin/news/pub/ HTTP/1.1" 200 78
+INFO 2019-05-26 21:49:52,028 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-26 21:49:52,164 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-26 21:50:02,777 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17683
+INFO 2019-05-26 23:20:12,032 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17659
+INFO 2019-05-26 23:20:13,518 basehttp 124 "GET /admin/news/1176/ HTTP/1.1" 200 14688
+INFO 2019-05-26 23:20:13,683 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-26 23:20:18,088 basehttp 124 "GET /admin/news/1166/ HTTP/1.1" 200 17396
+INFO 2019-05-26 23:20:18,256 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-26 23:20:26,534 basehttp 124 "GET /admin/news/1176/ HTTP/1.1" 200 14688
+INFO 2019-05-26 23:20:26,666 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-26 23:20:34,804 basehttp 124 "PUT /admin/news/1176/ HTTP/1.1" 200 78
+INFO 2019-05-26 23:20:35,924 basehttp 124 "GET /admin/news/1176/ HTTP/1.1" 200 14691
+INFO 2019-05-26 23:20:36,037 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-26 23:20:44,210 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17659
+INFO 2019-05-26 23:20:45,844 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14555
+INFO 2019-05-26 23:20:45,986 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-26 23:20:47,766 basehttp 124 "GET /admin/hotnews/ HTTP/1.1" 200 12409
+INFO 2019-05-26 23:20:47,830 basehttp 124 "GET /static/js/admin/news/news_hot.js HTTP/1.1" 304 0
+INFO 2019-05-26 23:20:49,935 basehttp 124 "GET /admin/hotnews/ HTTP/1.1" 200 12409
+INFO 2019-05-26 23:20:51,754 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 21207
+INFO 2019-05-26 23:20:51,774 basehttp 124 "GET /static/js/admin/news/news_banner.js HTTP/1.1" 304 0
+INFO 2019-05-26 23:20:55,547 basehttp 124 "GET /admin/banners/add/ HTTP/1.1" 200 12353
+INFO 2019-05-26 23:20:55,574 basehttp 124 "GET /static/js/admin/news/news_banner_add.js HTTP/1.1" 304 0
+INFO 2019-05-26 23:20:59,353 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-26 23:21:01,659 basehttp 124 "GET /admin/tags/2/news/ HTTP/1.1" 200 24875
+WARNING 2019-05-26 23:21:05,175 base 93 Method Not Allowed (POST): /admin/banners/add/
+WARNING 2019-05-26 23:21:05,187 log 228 Method Not Allowed: /admin/banners/add/
+WARNING 2019-05-26 23:21:05,191 basehttp 124 "POST /admin/banners/add/ HTTP/1.1" 405 0
+INFO 2019-05-26 23:23:34,274 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 21207
+INFO 2019-05-26 23:25:43,637 basehttp 124 "GET /admin/banners/add/ HTTP/1.1" 200 12353
+INFO 2019-05-26 23:25:51,749 basehttp 124 "GET /admin/tags/5/news/ HTTP/1.1" 200 18618
+INFO 2019-05-26 23:26:13,553 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-26 23:27:46,281 basehttp 124 "POST /admin/banners/add/ HTTP/1.1" 200 242
+INFO 2019-05-26 23:27:50,559 basehttp 124 "POST /admin/banners/add/ HTTP/1.1" 200 242
+INFO 2019-05-26 23:35:44,884 basehttp 124 "GET /admin/banners/add/ HTTP/1.1" 200 12353
+INFO 2019-05-26 23:35:48,259 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-26 23:35:49,511 basehttp 124 "GET /admin/tags/2/news/ HTTP/1.1" 200 24875
+INFO 2019-05-26 23:35:53,142 basehttp 124 "POST /admin/banners/add/ HTTP/1.1" 200 84
+INFO 2019-05-26 23:35:54,071 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23393
+INFO 2019-05-26 23:36:04,531 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:36:06,617 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:36:07,073 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:36:07,355 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:36:07,523 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:36:08,049 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:36:08,478 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:36:08,744 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:36:35,206 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:42:05,300 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23393
+INFO 2019-05-26 23:42:06,549 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:42:07,407 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:42:07,641 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:42:07,816 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:42:08,019 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:44:03,396 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 84
+INFO 2019-05-26 23:44:04,429 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23393
+INFO 2019-05-26 23:44:39,103 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23393
+INFO 2019-05-26 23:44:40,679 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:44:42,468 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:44:45,313 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:44:52,686 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 84
+INFO 2019-05-26 23:44:53,709 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23393
+INFO 2019-05-26 23:44:57,925 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-26 23:45:03,588 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:05,923 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:06,632 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:09,020 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:09,236 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:09,453 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:13,316 basehttp 124 "PUT /admin/banners/2/ HTTP/1.1" 200 84
+INFO 2019-05-26 23:45:14,313 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23393
+INFO 2019-05-26 23:45:18,383 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:19,159 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:19,347 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:19,846 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:20,171 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:23,769 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:24,985 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:25,373 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:25,574 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:27,610 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:29,994 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:45:32,883 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 84
+INFO 2019-05-26 23:45:33,291 basehttp 124 "PUT /admin/banners/6/ HTTP/1.1" 200 117
+INFO 2019-05-26 23:45:33,844 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23393
+INFO 2019-05-26 23:45:38,909 basehttp 124 "PUT /admin/banners/5/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:39,484 basehttp 124 "PUT /admin/banners/5/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:45:39,665 basehttp 124 "PUT /admin/banners/5/ HTTP/1.1" 200 105
+INFO 2019-05-26 23:46:23,070 basehttp 124 "PUT /admin/banners/4/ HTTP/1.1" 200 84
+INFO 2019-05-26 23:46:24,220 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23393
+INFO 2019-05-26 23:46:27,921 basehttp 124 "PUT /admin/banners/7/ HTTP/1.1" 200 84
+INFO 2019-05-26 23:46:28,903 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23393
+INFO 2019-05-26 23:46:31,850 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12801
+INFO 2019-05-26 23:46:31,930 basehttp 124 "GET /static/js/admin/doc/docs_manage.js HTTP/1.1" 304 0
+INFO 2019-05-26 23:46:36,698 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12801
+INFO 2019-05-26 23:46:37,130 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12801
+INFO 2019-05-26 23:46:39,677 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12801
+ERROR 2019-05-26 23:53:52,159 log 228 Internal Server Error: /admin/doc/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 646, in get
+    return render(request, 'admin/doc/docs_manage.html', locals())
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'doc_edit' not found. 'doc_edit' is not a valid view function or pattern name.
+ERROR 2019-05-26 23:53:52,177 basehttp 124 "GET /admin/doc/ HTTP/1.1" 500 186361
+INFO 2019-05-26 23:54:17,669 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12873
+INFO 2019-05-26 23:54:19,040 basehttp 124 "GET /admin/doc/1/ HTTP/1.1" 200 13146
+INFO 2019-05-26 23:54:19,066 basehttp 124 "GET /static/js/admin/doc/docs_pub.js HTTP/1.1" 200 6957
+INFO 2019-05-26 23:54:19,297 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-26 23:54:32,347 basehttp 124 "GET /admin/doc/1/ HTTP/1.1" 200 13146
+INFO 2019-05-26 23:54:32,465 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 10:48:30,589 basehttp 124 "GET / HTTP/1.1" 200 8388
+INFO 2019-05-27 10:48:31,709 basehttp 124 "GET /news/?tag_id=0&page=1 HTTP/1.1" 200 2733
+INFO 2019-05-27 10:48:31,730 basehttp 124 "GET /news/banners/ HTTP/1.1" 200 921
+WARNING 2019-05-27 10:48:31,825 log 228 Not Found: /favicon.ico
+WARNING 2019-05-27 10:48:31,826 basehttp 124 "GET /favicon.ico HTTP/1.1" 404 4283
+INFO 2019-05-27 10:48:46,210 basehttp 124 "GET /admin/ HTTP/1.1" 200 9735
+INFO 2019-05-27 10:48:49,032 basehttp 124 "GET /admin/tags/ HTTP/1.1" 200 12601
+INFO 2019-05-27 10:48:49,052 basehttp 124 "GET /static/js/admin/news/tags_manage.js HTTP/1.1" 304 0
+INFO 2019-05-27 10:48:53,418 basehttp 124 "GET /admin/hotnews/ HTTP/1.1" 200 12409
+INFO 2019-05-27 10:48:56,566 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23393
+INFO 2019-05-27 10:49:03,927 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12873
+INFO 2019-05-27 10:49:03,962 basehttp 124 "GET /static/js/admin/doc/docs_manage.js HTTP/1.1" 304 0
+INFO 2019-05-27 10:49:06,228 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12873
+INFO 2019-05-27 10:49:09,173 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12873
+INFO 2019-05-27 10:49:11,053 basehttp 124 "GET /admin/doc/1/ HTTP/1.1" 200 13146
+INFO 2019-05-27 10:49:11,079 basehttp 124 "GET /static/js/admin/doc/docs_pub.js HTTP/1.1" 304 0
+INFO 2019-05-27 10:49:11,167 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 10:49:14,878 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12873
+INFO 2019-05-27 10:49:16,833 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12873
+ERROR 2019-05-27 10:50:19,820 log 228 Internal Server Error: /admin/doc/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 646, in get
+    return render(request, 'admin/doc/docs_manage.html', locals())
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'docs_edit' with no arguments not found. 1 pattern(s) tried: ['admin\\/doc\\/(?P<banner_id>[0-9]+)\\/$']
+ERROR 2019-05-27 10:50:19,837 basehttp 124 "GET /admin/doc/ HTTP/1.1" 500 163526
+INFO 2019-05-27 10:57:04,696 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12887
+INFO 2019-05-27 10:57:07,031 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 200 12861
+INFO 2019-05-27 10:57:07,161 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 10:57:08,482 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12887
+INFO 2019-05-27 10:57:10,283 basehttp 124 "GET /admin/doc/1/ HTTP/1.1" 200 13160
+INFO 2019-05-27 10:57:10,364 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 10:57:12,444 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12887
+INFO 2019-05-27 10:57:27,348 basehttp 124 "GET /admin/doc/1/ HTTP/1.1" 200 13160
+INFO 2019-05-27 10:57:27,448 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 11:01:56,772 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12887
+INFO 2019-05-27 11:01:57,164 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12887
+INFO 2019-05-27 11:04:31,635 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 200 12861
+INFO 2019-05-27 11:04:31,906 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 11:04:41,172 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 200 12861
+INFO 2019-05-27 11:04:41,268 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 11:04:41,979 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12887
+INFO 2019-05-27 11:06:12,399 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 200 12861
+INFO 2019-05-27 11:06:12,688 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 11:06:25,631 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+WARNING 2019-05-27 11:06:29,366 log 228 Not Found: /admin/docs/files/
+WARNING 2019-05-27 11:06:29,367 basehttp 124 "POST /admin/docs/files/ HTTP/1.1" 404 7743
+INFO 2019-05-27 11:41:47,270 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 200 12861
+INFO 2019-05-27 11:41:47,428 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 11:41:49,540 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12887
+INFO 2019-05-27 11:41:51,475 basehttp 124 "GET /admin/doc/1/ HTTP/1.1" 200 13160
+INFO 2019-05-27 11:41:51,576 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+WARNING 2019-05-27 11:41:53,774 log 228 Not Found: /admin/docs/1/
+WARNING 2019-05-27 11:41:53,775 basehttp 124 "PUT /admin/docs/1/ HTTP/1.1" 404 7730
+INFO 2019-05-27 11:42:14,097 basehttp 124 "GET /admin/doc/ HTTP/1.1" 200 12887
+INFO 2019-05-27 11:42:16,200 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 200 12861
+INFO 2019-05-27 11:42:16,295 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 11:42:23,444 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+WARNING 2019-05-27 11:42:28,330 log 228 Not Found: /admin/docs/files/
+WARNING 2019-05-27 11:42:28,332 basehttp 124 "POST /admin/docs/files/ HTTP/1.1" 404 7743
+INFO 2019-05-27 16:19:45,893 basehttp 124 "GET / HTTP/1.1" 200 8388
+INFO 2019-05-27 16:19:47,699 basehttp 124 "GET /news/banners/ HTTP/1.1" 200 921
+WARNING 2019-05-27 16:19:47,739 log 228 Not Found: /favicon.ico
+WARNING 2019-05-27 16:19:47,741 basehttp 124 "GET /favicon.ico HTTP/1.1" 404 4283
+INFO 2019-05-27 16:19:47,889 basehttp 124 "GET /news/?tag_id=0&page=1 HTTP/1.1" 200 2733
+INFO 2019-05-27 16:19:49,057 basehttp 124 "GET /admin/ HTTP/1.1" 200 9749
+INFO 2019-05-27 16:19:50,949 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 200 12861
+INFO 2019-05-27 16:19:51,063 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:19:57,968 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+WARNING 2019-05-27 16:20:02,201 log 228 Not Found: /admin/docs/files/
+WARNING 2019-05-27 16:20:02,204 basehttp 124 "POST /admin/docs/files/ HTTP/1.1" 404 7926
+INFO 2019-05-27 16:20:20,774 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 200 12861
+INFO 2019-05-27 16:20:20,873 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:20:26,224 basehttp 124 "POST /admin/docs/files/ HTTP/1.1" 200 164
+INFO 2019-05-27 16:20:32,962 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+WARNING 2019-05-27 16:20:36,046 log 228 Not Found: /admin/docs/pub/
+WARNING 2019-05-27 16:20:36,048 basehttp 124 "POST /admin/docs/pub/ HTTP/1.1" 404 7921
+WARNING 2019-05-27 16:21:39,591 log 228 Not Found: /admin/doc/add/
+WARNING 2019-05-27 16:21:39,594 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 404 7920
+WARNING 2019-05-27 16:21:40,267 log 228 Not Found: /admin/doc/add/
+WARNING 2019-05-27 16:21:40,268 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 404 7920
+WARNING 2019-05-27 16:22:21,080 log 228 Not Found: /admin/doc/add/
+WARNING 2019-05-27 16:22:21,082 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 404 7920
+WARNING 2019-05-27 16:22:21,903 log 228 Not Found: /admin/doc/add/
+WARNING 2019-05-27 16:22:21,905 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 404 7920
+WARNING 2019-05-27 16:23:03,837 log 228 Not Found: /admin/doc/add/
+WARNING 2019-05-27 16:23:03,839 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 404 7920
+WARNING 2019-05-27 16:24:14,578 log 228 Not Found: /admin/doc/add/
+WARNING 2019-05-27 16:24:14,580 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 404 7919
+WARNING 2019-05-27 16:24:26,782 log 228 Not Found: /admin/doc/add/
+WARNING 2019-05-27 16:24:26,784 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 404 7920
+INFO 2019-05-27 16:24:47,744 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 200 12862
+INFO 2019-05-27 16:24:48,058 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-27 16:24:48,075 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-27 16:24:48,079 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-27 16:24:48,118 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-27 16:24:48,129 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-27 16:24:48,130 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-27 16:24:48,139 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-27 16:24:48,146 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-27 16:24:48,236 basehttp 124 "GET /static/js/admin/doc/docs_pub.js HTTP/1.1" 200 6957
+INFO 2019-05-27 16:24:48,279 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-27 16:24:48,302 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-27 16:24:48,318 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-27 16:24:48,321 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-27 16:24:48,325 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-27 16:24:48,337 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-27 16:24:48,462 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-27 16:24:48,654 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-27 16:24:48,686 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:25:00,855 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-27 16:25:04,649 basehttp 124 "POST /admin/docs/files/ HTTP/1.1" 200 164
+WARNING 2019-05-27 16:25:05,927 log 228 Not Found: /admin/docs/pub/
+WARNING 2019-05-27 16:25:05,928 basehttp 124 "POST /admin/docs/pub/ HTTP/1.1" 404 7923
+WARNING 2019-05-27 16:27:20,427 log 228 Not Found: /admin/doc/add/
+WARNING 2019-05-27 16:27:20,429 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 404 7920
+WARNING 2019-05-27 16:29:39,279 log 228 Not Found: /admin/doc/add/
+WARNING 2019-05-27 16:29:39,281 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 404 7920
+WARNING 2019-05-27 16:29:48,704 log 228 Not Found: /admin/doc/add/
+WARNING 2019-05-27 16:29:48,706 basehttp 124 "GET /admin/doc/add/ HTTP/1.1" 404 7920
+INFO 2019-05-27 16:29:50,923 basehttp 124 "GET /admin/ HTTP/1.1" 200 9756
+INFO 2019-05-27 16:29:53,613 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:29:53,749 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:29:54,867 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 12900
+INFO 2019-05-27 16:29:56,475 basehttp 124 "GET /admin/docs/1/ HTTP/1.1" 200 13167
+INFO 2019-05-27 16:29:56,567 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:29:58,742 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:29:58,838 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+WARNING 2019-05-27 16:30:05,383 log 228 Forbidden (CSRF cookie not set.): /admin/news/images/
+WARNING 2019-05-27 16:30:05,384 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 403 2840
+INFO 2019-05-27 16:30:29,114 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:29,230 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+WARNING 2019-05-27 16:30:32,447 log 228 Forbidden (CSRF cookie not set.): /admin/news/images/
+WARNING 2019-05-27 16:30:32,449 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 403 2840
+INFO 2019-05-27 16:30:40,797 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:40,895 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:30:41,177 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:41,274 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:30:41,432 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:41,512 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:30:41,641 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:41,732 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:30:41,837 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:41,917 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:30:42,046 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:42,130 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:30:42,232 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:42,329 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:30:42,428 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:42,507 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:30:42,630 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:42,715 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:30:42,819 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:30:42,904 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+WARNING 2019-05-27 16:30:45,393 log 228 Forbidden (CSRF cookie not set.): /admin/news/images/
+WARNING 2019-05-27 16:30:45,394 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 403 2840
+INFO 2019-05-27 16:30:49,329 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-27 16:31:30,341 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:31:30,401 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-27 16:31:30,406 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-27 16:31:30,416 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-27 16:31:30,419 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-27 16:31:30,421 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-27 16:31:30,422 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-27 16:31:30,444 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-27 16:31:30,453 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-27 16:31:30,464 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-27 16:31:30,468 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-27 16:31:30,484 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-27 16:31:30,513 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-27 16:31:30,514 basehttp 124 "GET /static/js/admin/doc/docs_pub.js HTTP/1.1" 200 6957
+INFO 2019-05-27 16:31:30,517 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-27 16:31:30,523 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-27 16:31:30,527 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-27 16:31:30,634 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+WARNING 2019-05-27 16:31:30,788 log 228 Not Found: /favicon.ico
+WARNING 2019-05-27 16:31:30,790 basehttp 124 "GET /favicon.ico HTTP/1.1" 404 4283
+INFO 2019-05-27 16:31:30,794 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:31:31,017 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:31:31,083 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-27 16:31:31,089 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-27 16:31:31,092 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-27 16:31:31,120 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-27 16:31:31,107 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-27 16:31:31,147 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-27 16:31:31,168 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-27 16:31:31,160 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-27 16:31:31,152 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-27 16:31:31,170 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-27 16:31:31,188 basehttp 124 "GET /static/js/admin/doc/docs_pub.js HTTP/1.1" 200 6957
+INFO 2019-05-27 16:31:31,189 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-27 16:31:31,198 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-27 16:31:31,199 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-27 16:31:31,216 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-27 16:31:31,219 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-27 16:31:31,309 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+WARNING 2019-05-27 16:31:31,456 log 228 Not Found: /favicon.ico
+WARNING 2019-05-27 16:31:31,458 basehttp 124 "GET /favicon.ico HTTP/1.1" 404 4283
+INFO 2019-05-27 16:31:31,465 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+WARNING 2019-05-27 16:31:34,790 log 228 Forbidden (CSRF cookie not set.): /admin/news/images/
+WARNING 2019-05-27 16:31:34,792 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 403 2840
+INFO 2019-05-27 16:31:56,891 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12868
+INFO 2019-05-27 16:31:56,941 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-27 16:31:56,967 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-27 16:31:56,975 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-27 16:31:57,005 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-27 16:31:57,042 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-27 16:31:57,074 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-27 16:31:57,081 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-27 16:31:57,083 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-27 16:31:57,095 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-27 16:31:57,125 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-27 16:31:57,130 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-27 16:31:57,139 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-27 16:31:57,172 basehttp 124 "GET /static/js/admin/doc/docs_pub.js HTTP/1.1" 200 6957
+INFO 2019-05-27 16:31:57,174 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-27 16:31:57,188 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-27 16:31:57,195 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-27 16:31:57,264 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-27 16:31:57,474 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+WARNING 2019-05-27 16:31:57,477 log 228 Not Found: /favicon.ico
+WARNING 2019-05-27 16:31:57,484 basehttp 124 "GET /favicon.ico HTTP/1.1" 404 4283
+WARNING 2019-05-27 16:32:10,562 log 228 Forbidden (CSRF cookie not set.): /admin/news/images/
+WARNING 2019-05-27 16:32:10,566 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 403 2840
+INFO 2019-05-27 16:32:35,985 basehttp 124 "GET / HTTP/1.1" 200 8379
+INFO 2019-05-27 16:32:37,504 basehttp 124 "GET /news/banners/ HTTP/1.1" 200 921
+INFO 2019-05-27 16:32:37,536 basehttp 124 "GET /news/?tag_id=0&page=1 HTTP/1.1" 200 2733
+WARNING 2019-05-27 16:32:37,549 log 228 Not Found: /favicon.ico
+WARNING 2019-05-27 16:32:37,554 basehttp 124 "GET /favicon.ico HTTP/1.1" 404 4283
+INFO 2019-05-27 16:32:39,715 basehttp 124 "GET /users/login/ HTTP/1.1" 200 3604
+INFO 2019-05-27 16:32:39,751 basehttp 124 "GET /static/js/users/login.js HTTP/1.1" 304 0
+INFO 2019-05-27 16:32:39,765 basehttp 124 "GET /static/css/authPro/auth.css HTTP/1.1" 200 3286
+WARNING 2019-05-27 16:32:47,438 log 228 Forbidden (CSRF cookie not set.): /users/login/
+WARNING 2019-05-27 16:32:47,439 basehttp 124 "POST /users/login/ HTTP/1.1" 403 2840
+WARNING 2019-05-27 16:33:38,678 log 228 Forbidden (CSRF cookie not set.): /users/login/
+WARNING 2019-05-27 16:33:38,680 basehttp 124 "POST /users/login/ HTTP/1.1" 403 2840
+WARNING 2019-05-27 16:34:09,037 log 228 Forbidden (CSRF cookie not set.): /users/login/
+WARNING 2019-05-27 16:34:09,038 basehttp 124 "POST /users/login/ HTTP/1.1" 403 2840
+INFO 2019-05-27 16:34:11,208 basehttp 124 "GET /users/register/ HTTP/1.1" 200 4451
+INFO 2019-05-27 16:34:11,277 basehttp 124 "GET /static/js/users/auth.js HTTP/1.1" 200 10837
+INFO 2019-05-27 16:34:11,805 views 38 image_code: QIP7
+INFO 2019-05-27 16:34:11,807 basehttp 124 "GET /image_code/9c75e4a4-8822-4aff-be0d-7901d692ef96/ HTTP/1.1" 200 3146
+INFO 2019-05-27 16:34:15,113 basehttp 124 "GET /users/login/ HTTP/1.1" 200 3604
+INFO 2019-05-27 16:34:20,944 basehttp 124 "POST /users/login/ HTTP/1.1" 200 105
+INFO 2019-05-27 16:34:24,924 basehttp 124 "POST /users/login/ HTTP/1.1" 200 84
+INFO 2019-05-27 16:34:25,454 basehttp 124 "GET /users/register/ HTTP/1.1" 200 4457
+INFO 2019-05-27 16:34:25,513 views 38 image_code: GZBR
+INFO 2019-05-27 16:34:25,515 basehttp 124 "GET /image_code/5795be73-8087-4e4e-957a-f4b7c810f8d3/ HTTP/1.1" 200 3368
+INFO 2019-05-27 16:34:28,300 basehttp 124 "GET / HTTP/1.1" 200 8385
+INFO 2019-05-27 16:34:28,374 basehttp 124 "GET /news/banners/ HTTP/1.1" 200 921
+INFO 2019-05-27 16:34:28,405 basehttp 124 "GET /news/?tag_id=0&page=1 HTTP/1.1" 200 2733
+INFO 2019-05-27 16:34:30,080 basehttp 124 "GET /admin/ HTTP/1.1" 200 9748
+INFO 2019-05-27 16:34:32,299 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 12892
+INFO 2019-05-27 16:34:33,581 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12860
+INFO 2019-05-27 16:34:33,735 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:34:36,973 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-27 16:34:42,233 basehttp 124 "POST /admin/docs/files/ HTTP/1.1" 200 164
+INFO 2019-05-27 16:34:47,214 basehttp 124 "POST /admin/docs/pub/ HTTP/1.1" 200 78
+INFO 2019-05-27 16:34:49,935 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 13268
+INFO 2019-05-27 16:34:53,010 basehttp 124 "GET /admin/docs/7/ HTTP/1.1" 200 13067
+INFO 2019-05-27 16:34:53,108 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+WARNING 2019-05-27 16:34:56,834 base 93 Method Not Allowed (PUT): /admin/docs/7/
+WARNING 2019-05-27 16:34:56,835 log 228 Method Not Allowed: /admin/docs/7/
+WARNING 2019-05-27 16:34:56,836 basehttp 124 "PUT /admin/docs/7/ HTTP/1.1" 405 0
+ERROR 2019-05-27 16:47:57,380 log 228 Internal Server Error: /admin/docs/7/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: get() got an unexpected keyword argument 'banner_id'
+ERROR 2019-05-27 16:47:57,385 basehttp 124 "GET /admin/docs/7/ HTTP/1.1" 500 72125
+ERROR 2019-05-27 16:48:26,433 log 228 Internal Server Error: /admin/docs/7/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 666, in get
+    doc = models.Doc.objects.only('id').filter(id=doc_id).first()
+AttributeError: type object 'Doc' has no attribute 'objects'
+ERROR 2019-05-27 16:48:26,440 basehttp 124 "GET /admin/docs/7/ HTTP/1.1" 500 76313
+INFO 2019-05-27 16:50:30,486 basehttp 124 "GET /admin/docs HTTP/1.1" 301 0
+ERROR 2019-05-27 16:50:30,584 log 228 Internal Server Error: /admin/docs/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 645, in get
+    docs = Doc.objects.only('title','update_time').filter(is_delete=False)
+NameError: name 'Doc' is not defined
+ERROR 2019-05-27 16:50:30,588 basehttp 124 "GET /admin/docs/ HTTP/1.1" 500 75343
+ERROR 2019-05-27 16:51:06,015 log 228 Internal Server Error: /admin/docs/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 645, in get
+    docs = models.Doc.objects.only('title','update_time').filter(is_delete=False)
+AttributeError: type object 'Doc' has no attribute 'objects'
+ERROR 2019-05-27 16:51:06,020 basehttp 124 "GET /admin/docs/ HTTP/1.1" 500 75630
+INFO 2019-05-27 16:51:42,683 basehttp 124 "GET /admin/ HTTP/1.1" 200 9748
+INFO 2019-05-27 16:51:45,578 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12860
+INFO 2019-05-27 16:51:45,680 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+ERROR 2019-05-27 16:51:47,137 log 228 Internal Server Error: /admin/docs/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 645, in get
+    docs = models.Doc.objects.only('title','update_time').filter(is_delete=False)
+AttributeError: type object 'Doc' has no attribute 'objects'
+ERROR 2019-05-27 16:51:47,145 basehttp 124 "GET /admin/docs/ HTTP/1.1" 500 75652
+ERROR 2019-05-27 16:56:08,923 log 228 Internal Server Error: /admin/docs/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 645, in get
+    docs = models.Doc.objects.only('title','update_time').filter(is_delete=False)
+AttributeError: type object 'Doc' has no attribute 'objects'
+ERROR 2019-05-27 16:56:08,928 basehttp 124 "GET /admin/docs/ HTTP/1.1" 500 75787
+INFO 2019-05-27 16:56:10,288 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 16:57:26,534 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12860
+INFO 2019-05-27 16:57:26,737 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+ERROR 2019-05-27 16:57:35,082 log 228 Internal Server Error: /admin/docs/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 645, in get
+    docs = models.Doc.objects.only('title','update_time').filter(is_delete=False)
+AttributeError: type object 'Doc' has no attribute 'objects'
+ERROR 2019-05-27 16:57:35,089 basehttp 124 "GET /admin/docs/ HTTP/1.1" 500 75652
+ERROR 2019-05-27 16:59:49,936 log 228 Internal Server Error: /admin/docs/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 645, in get
+    docs = models.Doc.objects.only('title','update_time').filter(is_delete=False)
+AttributeError: type object 'Doc' has no attribute 'objects'
+ERROR 2019-05-27 16:59:49,940 basehttp 124 "GET /admin/docs/ HTTP/1.1" 500 75787
+ERROR 2019-05-27 17:04:24,425 log 228 Internal Server Error: /admin/docs/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 645, in get
+    docs = models.Doc.objects.only('title','update_time').filter(is_delete=False)
+AttributeError: type object 'Doc' has no attribute 'objects'
+ERROR 2019-05-27 17:04:24,440 basehttp 124 "GET /admin/docs/ HTTP/1.1" 500 75787
+INFO 2019-05-27 17:04:28,039 basehttp 124 "GET / HTTP/1.1" 200 8385
+INFO 2019-05-27 17:04:28,803 basehttp 124 "GET /news/banners/ HTTP/1.1" 200 921
+INFO 2019-05-27 17:04:28,810 basehttp 124 "GET /news/?tag_id=0&page=1 HTTP/1.1" 200 2733
+INFO 2019-05-27 17:04:31,120 basehttp 124 "GET /admin/ HTTP/1.1" 200 9748
+ERROR 2019-05-27 17:04:32,888 log 228 Internal Server Error: /admin/docs/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 645, in get
+    docs = models.Doc.objects.only('title','update_time').filter(is_delete=False)
+AttributeError: type object 'Doc' has no attribute 'objects'
+ERROR 2019-05-27 17:04:32,895 basehttp 124 "GET /admin/docs/ HTTP/1.1" 500 75643
+ERROR 2019-05-27 17:08:11,035 log 228 Internal Server Error: /admin/docs/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 645, in get
+    docs = models.Doc.objects.only('title','update_time').filter(is_delete=False)
+AttributeError: type object 'Doc' has no attribute 'objects'
+ERROR 2019-05-27 17:08:11,043 basehttp 124 "GET /admin/docs/ HTTP/1.1" 500 75778
+INFO 2019-05-27 17:15:34,920 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10314
+INFO 2019-05-27 17:15:38,443 basehttp 124 "GET /admin/news/pub/ HTTP/1.1" 200 14568
+INFO 2019-05-27 17:15:38,601 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 17:15:39,890 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10314
+INFO 2019-05-27 17:15:40,663 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12860
+INFO 2019-05-27 17:15:40,767 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 17:15:41,398 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10314
+INFO 2019-05-27 17:16:05,030 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10314
+INFO 2019-05-27 17:16:06,159 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10314
+INFO 2019-05-27 17:16:06,824 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12860
+INFO 2019-05-27 17:16:06,926 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 17:16:12,096 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-27 17:16:16,274 basehttp 124 "POST /admin/docs/files/ HTTP/1.1" 200 164
+INFO 2019-05-27 17:16:17,981 basehttp 124 "POST /admin/docs/pub/ HTTP/1.1" 200 78
+INFO 2019-05-27 17:16:19,544 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10684
+INFO 2019-05-27 17:16:32,942 basehttp 124 "GET /admin/docs/1/ HTTP/1.1" 200 13063
+INFO 2019-05-27 17:16:33,044 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 17:16:35,617 basehttp 124 "PUT /admin/docs/1/ HTTP/1.1" 200 78
+INFO 2019-05-27 17:16:37,718 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10684
+INFO 2019-05-27 17:16:39,839 basehttp 124 "GET /admin/docs/1/ HTTP/1.1" 200 13066
+INFO 2019-05-27 17:16:39,915 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 17:16:41,913 basehttp 124 "PUT /admin/docs/1/ HTTP/1.1" 200 78
+INFO 2019-05-27 17:16:43,464 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10690
+INFO 2019-05-27 17:36:04,168 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10704
+ERROR 2019-05-27 17:36:08,638 log 228 Internal Server Error: /admin/courses/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 774, in get
+    return render(request, 'admin/course/courses_manage.html', locals())
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'courses_edit' not found. 'courses_edit' is not a valid view function or pattern name.
+ERROR 2019-05-27 17:36:08,641 log 228 Internal Server Error: /admin/courses/
+Traceback (most recent call last):
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 68, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/views/generic/base.py", line 88, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/pyvip/mygit/mydjango/apps/admin/views.py", line 774, in get
+    return render(request, 'admin/course/courses_manage.html', locals())
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/pyvip/.virtualenvs/mysite/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'courses_edit' not found. 'courses_edit' is not a valid view function or pattern name.
+ERROR 2019-05-27 17:36:08,651 basehttp 124 "GET /admin/courses/ HTTP/1.1" 500 181278
+ERROR 2019-05-27 17:36:08,657 basehttp 124 "GET /admin/courses/ HTTP/1.1" 500 181278
+INFO 2019-05-27 17:37:19,014 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-27 17:37:19,046 basehttp 124 "GET /static/js/admin/course/courses_manage.js HTTP/1.1" 200 2140
+INFO 2019-05-27 17:37:20,628 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-27 17:37:21,606 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-27 17:37:22,175 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-27 17:37:22,373 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-27 17:37:27,110 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-27 17:37:40,426 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-27 17:37:42,780 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-27 19:03:06,009 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12874
+INFO 2019-05-27 19:03:06,145 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 19:03:07,362 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10704
+INFO 2019-05-27 19:03:08,335 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12874
+INFO 2019-05-27 19:03:08,415 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 19:03:08,978 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10704
+INFO 2019-05-27 19:19:57,754 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10704
+INFO 2019-05-27 19:19:58,036 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10704
+INFO 2019-05-27 19:31:45,738 basehttp 124 "GET /admin/docs/1/ HTTP/1.1" 200 13083
+INFO 2019-05-27 19:31:45,887 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-27 19:37:15,394 basehttp 124 "GET /admin/docs/1/ HTTP/1.1" 200 13083
+INFO 2019-05-27 19:37:15,482 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 10:54:50,712 basehttp 124 "GET / HTTP/1.1" 200 8385
+INFO 2019-05-28 10:54:50,769 basehttp 124 "GET /static/css/base/side.css HTTP/1.1" 304 0
+INFO 2019-05-28 10:54:50,787 basehttp 124 "GET /static/js/commons.js HTTP/1.1" 304 0
+INFO 2019-05-28 10:54:51,035 basehttp 124 "GET /news/banners/ HTTP/1.1" 200 921
+INFO 2019-05-28 10:54:51,040 basehttp 124 "GET /news/?tag_id=0&page=1 HTTP/1.1" 200 2733
+WARNING 2019-05-28 10:54:51,192 log 228 Not Found: /favicon.ico
+WARNING 2019-05-28 10:54:51,193 basehttp 124 "GET /favicon.ico HTTP/1.1" 404 4283
+INFO 2019-05-28 10:55:19,218 basehttp 124 "GET /admin/ HTTP/1.1" 200 9762
+INFO 2019-05-28 10:55:24,206 basehttp 124 "GET /admin/news/ HTTP/1.1" 200 17686
+INFO 2019-05-28 10:55:24,265 basehttp 124 "GET /static/js/admin/news/news_manage.js HTTP/1.1" 304 0
+INFO 2019-05-28 10:55:26,952 basehttp 124 "GET /admin/news/1176/ HTTP/1.1" 200 14718
+INFO 2019-05-28 10:55:26,986 basehttp 124 "GET /static/js/admin/news/news_pub.js HTTP/1.1" 304 0
+INFO 2019-05-28 10:55:27,133 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 10:58:11,430 basehttp 124 "GET /admin/banners/ HTTP/1.1" 200 23420
+INFO 2019-05-28 10:58:11,494 basehttp 124 "GET /static/js/admin/news/news_banner.js HTTP/1.1" 304 0
+INFO 2019-05-28 10:59:17,811 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12874
+INFO 2019-05-28 10:59:17,847 basehttp 124 "GET /static/js/admin/doc/docs_pub.js HTTP/1.1" 304 0
+INFO 2019-05-28 10:59:17,938 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 10:59:19,538 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10704
+INFO 2019-05-28 10:59:19,559 basehttp 124 "GET /static/js/admin/doc/docs_manage.js HTTP/1.1" 304 0
+INFO 2019-05-28 11:12:21,909 basehttp 124 "GET /admin/docs/1/ HTTP/1.1" 200 13083
+INFO 2019-05-28 11:12:22,049 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 11:12:29,264 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-28 11:12:29,282 basehttp 124 "GET /static/js/admin/course/courses_manage.js HTTP/1.1" 304 0
+INFO 2019-05-28 11:27:15,437 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-28 11:27:18,455 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10726
+INFO 2019-05-28 11:29:29,927 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10740
+INFO 2019-05-28 11:29:31,212 basehttp 124 "GET /admin/courses/5 HTTP/1.1" 200 15360
+INFO 2019-05-28 11:29:31,252 basehttp 124 "GET /static/js/admin/course/courses_pub.js HTTP/1.1" 200 9124
+INFO 2019-05-28 11:29:31,368 basehttp 124 "GET /static/node_modules/%40baiducloud/sdk/dist/baidubce-sdk.bundle.min.js HTTP/1.1" 200 558429
+INFO 2019-05-28 11:31:13,462 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10740
+INFO 2019-05-28 11:31:14,751 basehttp 124 "GET /admin/courses/5 HTTP/1.1" 200 15619
+INFO 2019-05-28 11:33:44,433 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10740
+INFO 2019-05-28 15:31:04,089 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10740
+INFO 2019-05-28 15:31:04,125 basehttp 124 "GET /static/js/admin/course/courses_manage.js HTTP/1.1" 304 0
+INFO 2019-05-28 15:31:54,214 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10758
+INFO 2019-05-28 15:31:56,920 basehttp 124 "GET /admin/courses/pub/ HTTP/1.1" 200 15784
+INFO 2019-05-28 15:31:56,950 basehttp 124 "GET /static/js/admin/course/courses_pub.js HTTP/1.1" 304 0
+INFO 2019-05-28 15:31:59,425 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10758
+INFO 2019-05-28 15:32:00,721 basehttp 124 "GET /admin/courses/5 HTTP/1.1" 200 15637
+INFO 2019-05-28 15:32:15,725 basehttp 124 "GET /admin/courses/pub/ HTTP/1.1" 200 15784
+INFO 2019-05-28 15:32:26,011 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10758
+INFO 2019-05-28 15:32:27,494 basehttp 124 "GET /admin/courses/pub/ HTTP/1.1" 200 15784
+INFO 2019-05-28 15:32:28,441 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10758
+INFO 2019-05-28 15:32:29,363 basehttp 124 "GET /admin/courses/pub/ HTTP/1.1" 200 15784
+INFO 2019-05-28 15:32:30,322 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10758
+INFO 2019-05-28 15:38:08,285 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10758
+INFO 2019-05-28 15:38:10,229 basehttp 124 "GET /admin/docs/ HTTP/1.1" 200 10722
+INFO 2019-05-28 15:38:11,809 basehttp 124 "GET /admin/docs/1/ HTTP/1.1" 200 13101
+INFO 2019-05-28 15:38:11,904 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 15:38:17,665 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10758
+INFO 2019-05-28 15:38:19,019 basehttp 124 "GET /admin/courses/5 HTTP/1.1" 200 15637
+INFO 2019-05-28 15:40:18,117 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10758
+INFO 2019-05-28 15:40:19,449 basehttp 124 "GET /admin/courses/5 HTTP/1.1" 200 15749
+INFO 2019-05-28 15:40:48,716 basehttp 124 "GET /admin/courses/5 HTTP/1.1" 200 15749
+INFO 2019-05-28 15:41:10,939 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 10758
+INFO 2019-05-28 15:41:12,189 basehttp 124 "GET /admin/docs/pub/ HTTP/1.1" 200 12892
+INFO 2019-05-28 15:41:12,283 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 15:41:19,758 basehttp 124 "GET /admin/courses/pub/ HTTP/1.1" 200 15784
+INFO 2019-05-28 15:41:46,726 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:41:58,376 basehttp 124 "GET /admin/courses/pub/ HTTP/1.1" 200 15784
+INFO 2019-05-28 15:41:58,457 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:41:58,485 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:41:58,493 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:41:58,510 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:41:58,527 basehttp 124 "GET /static/plugins/markdown_editor/css/editormd.css HTTP/1.1" 200 82624
+INFO 2019-05-28 15:41:58,537 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:41:58,542 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:41:58,571 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:41:58,573 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:41:58,587 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:41:58,591 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:41:58,588 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:41:58,607 basehttp 124 "GET /static/js/admin/course/courses_pub.js HTTP/1.1" 200 9068
+INFO 2019-05-28 15:41:58,655 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:41:58,660 basehttp 124 "GET /static/node_modules/%40baiducloud/sdk/dist/baidubce-sdk.bundle.min.js HTTP/1.1" 200 558429
+INFO 2019-05-28 15:41:58,680 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-28 15:41:58,704 basehttp 124 "GET /static/plugins/markdown_editor/editormd.js HTTP/1.1" 200 163324
+INFO 2019-05-28 15:41:58,734 basehttp 124 "GET /static/plugins/markdown_editor/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+INFO 2019-05-28 15:41:58,750 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:41:58,758 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:41:58,844 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:41:58,968 basehttp 124 "GET /static/plugins/markdown_editor/examples/test.md HTTP/1.1" 200 0
+INFO 2019-05-28 15:41:59,009 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.css HTTP/1.1" 200 5312
+INFO 2019-05-28 15:41:59,019 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/search/matchesonscrollbar.css HTTP/1.1" 200 188
+INFO 2019-05-28 15:41:59,032 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/dialog/dialog.css HTTP/1.1" 200 502
+INFO 2019-05-28 15:41:59,036 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/fold/foldgutter.css HTTP/1.1" 200 435
+INFO 2019-05-28 15:41:59,043 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 15:41:59,053 basehttp 124 "GET /static/plugins/markdown_editor/images/loading.gif HTTP/1.1" 200 7726
+INFO 2019-05-28 15:41:59,079 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.js HTTP/1.1" 200 221231
+INFO 2019-05-28 15:41:59,151 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/modes.min.js HTTP/1.1" 200 205547
+INFO 2019-05-28 15:41:59,179 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addons.min.js HTTP/1.1" 200 39288
+INFO 2019-05-28 15:41:59,231 basehttp 124 "GET /static/plugins/markdown_editor/lib/marked.min.js HTTP/1.1" 200 19256
+INFO 2019-05-28 15:41:59,268 basehttp 124 "GET /static/plugins/markdown_editor/lib/prettify.min.js HTTP/1.1" 200 17973
+INFO 2019-05-28 15:41:59,350 basehttp 124 "GET /static/plugins/markdown_editor/lib/raphael.min.js HTTP/1.1" 200 92705
+INFO 2019-05-28 15:41:59,376 basehttp 124 "GET /static/plugins/markdown_editor/lib/underscore.min.js HTTP/1.1" 200 16487
+INFO 2019-05-28 15:41:59,391 basehttp 124 "GET /static/plugins/markdown_editor/lib/flowchart.min.js HTTP/1.1" 200 19807
+INFO 2019-05-28 15:41:59,402 basehttp 124 "GET /static/plugins/markdown_editor/lib/jquery.flowchart.min.js HTTP/1.1" 200 1396
+INFO 2019-05-28 15:41:59,436 basehttp 124 "GET /static/plugins/markdown_editor/lib/sequence-diagram.min.js HTTP/1.1" 200 87695
+INFO 2019-05-28 15:42:09,308 basehttp 124 "POST /admin/news/images/ HTTP/1.1" 200 164
+INFO 2019-05-28 15:43:16,074 basehttp 124 "POST /admin/courses/pub/ HTTP/1.1" 200 78
+INFO 2019-05-28 15:43:18,064 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 11159
+INFO 2019-05-28 15:43:18,115 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:43:18,142 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:43:18,166 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:43:18,182 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:43:18,178 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:43:18,175 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:43:18,184 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:43:18,215 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:43:18,228 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:43:18,233 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:43:18,226 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:43:18,244 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:43:18,255 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:43:18,257 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:43:18,286 basehttp 124 "GET /static/js/admin/course/courses_manage.js HTTP/1.1" 200 2140
+INFO 2019-05-28 15:43:18,316 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:43:20,315 basehttp 124 "GET /admin/courses/5 HTTP/1.1" 200 15749
+INFO 2019-05-28 15:43:20,365 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:43:20,383 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:43:20,383 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:43:20,395 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:43:20,406 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:43:20,419 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:43:20,423 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:43:20,428 basehttp 124 "GET /static/plugins/markdown_editor/css/editormd.css HTTP/1.1" 200 82624
+INFO 2019-05-28 15:43:20,445 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:43:20,452 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:43:20,468 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:43:20,473 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:43:20,490 basehttp 124 "GET /static/plugins/markdown_editor/editormd.js HTTP/1.1" 200 163324
+INFO 2019-05-28 15:43:20,499 basehttp 124 "GET /static/js/admin/course/courses_pub.js HTTP/1.1" 200 9068
+INFO 2019-05-28 15:43:20,500 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-28 15:43:20,502 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:43:20,510 basehttp 124 "GET /static/plugins/markdown_editor/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+INFO 2019-05-28 15:43:20,512 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:43:20,538 basehttp 124 "GET /static/node_modules/%40baiducloud/sdk/dist/baidubce-sdk.bundle.min.js HTTP/1.1" 200 558429
+INFO 2019-05-28 15:43:20,571 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:43:20,602 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:43:23,326 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 11159
+INFO 2019-05-28 15:43:23,363 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:43:23,372 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:43:23,404 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:43:23,409 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:43:23,416 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:43:23,433 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:43:23,441 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:43:23,448 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:43:23,455 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:43:23,461 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:43:23,475 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:43:23,491 basehttp 124 "GET /static/js/admin/course/courses_manage.js HTTP/1.1" 200 2140
+INFO 2019-05-28 15:43:23,497 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:43:23,507 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:43:23,511 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:43:23,572 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:43:24,666 basehttp 124 "GET /admin/courses/6 HTTP/1.1" 200 15728
+INFO 2019-05-28 15:43:24,721 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:43:24,726 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:43:24,726 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:43:24,742 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:43:24,752 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:43:24,777 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:43:24,787 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:43:24,769 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:43:24,804 basehttp 124 "GET /static/plugins/markdown_editor/css/editormd.css HTTP/1.1" 200 82624
+INFO 2019-05-28 15:43:24,805 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:43:24,792 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:43:24,799 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:43:24,823 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:43:24,825 basehttp 124 "GET /static/js/admin/course/courses_pub.js HTTP/1.1" 200 9068
+INFO 2019-05-28 15:43:24,842 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-28 15:43:24,877 basehttp 124 "GET /static/plugins/markdown_editor/editormd.js HTTP/1.1" 200 163324
+INFO 2019-05-28 15:43:24,884 basehttp 124 "GET /static/plugins/markdown_editor/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+INFO 2019-05-28 15:43:24,890 basehttp 124 "GET /static/node_modules/%40baiducloud/sdk/dist/baidubce-sdk.bundle.min.js HTTP/1.1" 200 558429
+INFO 2019-05-28 15:43:24,890 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:43:24,957 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:43:25,020 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:43:35,552 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 15:44:33,213 basehttp 124 "GET /admin/courses/6 HTTP/1.1" 200 16040
+INFO 2019-05-28 15:44:33,253 basehttp 124 "GET /static/js/admin/course/courses_pub.js HTTP/1.1" 304 0
+INFO 2019-05-28 15:44:33,465 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+WARNING 2019-05-28 15:44:40,834 log 228 Not Found: /admin/courses/6/
+WARNING 2019-05-28 15:44:40,837 basehttp 124 "PUT /admin/courses/6/ HTTP/1.1" 404 8495
+INFO 2019-05-28 15:45:04,917 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:45:09,033 basehttp 124 "GET /admin/courses/pub/ HTTP/1.1" 200 15784
+INFO 2019-05-28 15:45:09,064 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:45:09,076 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:45:09,091 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:45:09,110 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:45:09,120 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:45:09,127 basehttp 124 "GET /static/plugins/markdown_editor/css/editormd.css HTTP/1.1" 200 82624
+INFO 2019-05-28 15:45:09,129 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:45:09,146 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:45:09,166 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:45:09,174 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:45:09,186 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:45:09,190 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:45:09,207 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:45:09,210 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-28 15:45:09,211 basehttp 124 "GET /static/plugins/markdown_editor/editormd.js HTTP/1.1" 200 163324
+INFO 2019-05-28 15:45:09,215 basehttp 124 "GET /static/js/admin/course/courses_pub.js HTTP/1.1" 200 9068
+INFO 2019-05-28 15:45:09,261 basehttp 124 "GET /static/node_modules/%40baiducloud/sdk/dist/baidubce-sdk.bundle.min.js HTTP/1.1" 200 558429
+INFO 2019-05-28 15:45:09,261 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:45:09,262 basehttp 124 "GET /static/plugins/markdown_editor/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+INFO 2019-05-28 15:45:09,327 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:45:09,358 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:45:09,575 basehttp 124 "GET /static/plugins/markdown_editor/examples/test.md HTTP/1.1" 200 0
+INFO 2019-05-28 15:45:09,602 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/dialog/dialog.css HTTP/1.1" 200 502
+INFO 2019-05-28 15:45:09,605 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.css HTTP/1.1" 200 5312
+INFO 2019-05-28 15:45:09,610 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/search/matchesonscrollbar.css HTTP/1.1" 200 188
+INFO 2019-05-28 15:45:09,612 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/fold/foldgutter.css HTTP/1.1" 200 435
+INFO 2019-05-28 15:45:09,627 basehttp 124 "GET /static/plugins/markdown_editor/images/loading.gif HTTP/1.1" 200 7726
+INFO 2019-05-28 15:45:09,642 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.js HTTP/1.1" 200 221231
+INFO 2019-05-28 15:45:09,653 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 15:45:09,704 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/modes.min.js HTTP/1.1" 200 205547
+INFO 2019-05-28 15:45:09,732 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addons.min.js HTTP/1.1" 200 39288
+INFO 2019-05-28 15:45:09,787 basehttp 124 "GET /static/plugins/markdown_editor/lib/marked.min.js HTTP/1.1" 200 19256
+INFO 2019-05-28 15:45:09,822 basehttp 124 "GET /static/plugins/markdown_editor/lib/prettify.min.js HTTP/1.1" 200 17973
+INFO 2019-05-28 15:45:09,880 basehttp 124 "GET /static/plugins/markdown_editor/lib/raphael.min.js HTTP/1.1" 200 92705
+INFO 2019-05-28 15:45:09,899 basehttp 124 "GET /static/plugins/markdown_editor/lib/underscore.min.js HTTP/1.1" 200 16487
+INFO 2019-05-28 15:45:09,911 basehttp 124 "GET /static/plugins/markdown_editor/lib/flowchart.min.js HTTP/1.1" 200 19807
+INFO 2019-05-28 15:45:09,920 basehttp 124 "GET /static/plugins/markdown_editor/lib/jquery.flowchart.min.js HTTP/1.1" 200 1396
+INFO 2019-05-28 15:45:09,978 basehttp 124 "GET /static/plugins/markdown_editor/lib/sequence-diagram.min.js HTTP/1.1" 200 87695
+INFO 2019-05-28 15:45:12,917 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 11159
+INFO 2019-05-28 15:45:12,943 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:45:12,970 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:45:12,992 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:45:13,009 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:45:12,994 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:45:12,994 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:45:13,029 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:45:13,040 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:45:13,041 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:45:13,041 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:45:13,070 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:45:13,072 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:45:13,099 basehttp 124 "GET /static/js/admin/course/courses_manage.js HTTP/1.1" 200 2140
+INFO 2019-05-28 15:45:13,102 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:45:13,106 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:45:13,164 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:45:15,526 basehttp 124 "GET /admin/courses/6 HTTP/1.1" 200 16040
+INFO 2019-05-28 15:45:15,596 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:45:15,597 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:45:15,617 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:45:15,633 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:45:15,615 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:45:15,650 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:45:15,653 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:45:15,683 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:45:15,677 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:45:15,668 basehttp 124 "GET /static/plugins/markdown_editor/css/editormd.css HTTP/1.1" 200 82624
+INFO 2019-05-28 15:45:15,687 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:45:15,699 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:45:15,702 basehttp 124 "GET /static/js/admin/course/courses_pub.js HTTP/1.1" 200 9068
+INFO 2019-05-28 15:45:15,705 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-28 15:45:15,720 basehttp 124 "GET /static/plugins/markdown_editor/editormd.js HTTP/1.1" 200 163324
+INFO 2019-05-28 15:45:15,738 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:45:15,749 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:45:15,764 basehttp 124 "GET /static/node_modules/%40baiducloud/sdk/dist/baidubce-sdk.bundle.min.js HTTP/1.1" 200 558429
+INFO 2019-05-28 15:45:15,777 basehttp 124 "GET /static/plugins/markdown_editor/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+INFO 2019-05-28 15:45:15,857 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:45:15,886 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:45:16,053 basehttp 124 "GET /static/plugins/markdown_editor/examples/test.md HTTP/1.1" 200 0
+INFO 2019-05-28 15:45:16,078 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.css HTTP/1.1" 200 5312
+INFO 2019-05-28 15:45:16,085 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/dialog/dialog.css HTTP/1.1" 200 502
+INFO 2019-05-28 15:45:16,095 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/search/matchesonscrollbar.css HTTP/1.1" 200 188
+INFO 2019-05-28 15:45:16,099 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/fold/foldgutter.css HTTP/1.1" 200 435
+INFO 2019-05-28 15:45:16,115 basehttp 124 "GET /static/plugins/markdown_editor/images/loading.gif HTTP/1.1" 200 7726
+INFO 2019-05-28 15:45:16,133 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.js HTTP/1.1" 200 221231
+INFO 2019-05-28 15:45:16,150 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 15:45:16,238 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/modes.min.js HTTP/1.1" 200 205547
+INFO 2019-05-28 15:45:16,259 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addons.min.js HTTP/1.1" 200 39288
+INFO 2019-05-28 15:45:16,314 basehttp 124 "GET /static/plugins/markdown_editor/lib/marked.min.js HTTP/1.1" 200 19256
+INFO 2019-05-28 15:45:16,339 basehttp 124 "GET /static/plugins/markdown_editor/lib/prettify.min.js HTTP/1.1" 200 17973
+INFO 2019-05-28 15:45:16,393 basehttp 124 "GET /static/plugins/markdown_editor/lib/raphael.min.js HTTP/1.1" 200 92705
+INFO 2019-05-28 15:45:16,414 basehttp 124 "GET /static/plugins/markdown_editor/lib/underscore.min.js HTTP/1.1" 200 16487
+INFO 2019-05-28 15:45:16,440 basehttp 124 "GET /static/plugins/markdown_editor/lib/flowchart.min.js HTTP/1.1" 200 19807
+INFO 2019-05-28 15:45:16,484 basehttp 124 "GET /static/plugins/markdown_editor/lib/jquery.flowchart.min.js HTTP/1.1" 200 1396
+INFO 2019-05-28 15:45:16,499 basehttp 124 "GET /static/plugins/markdown_editor/lib/sequence-diagram.min.js HTTP/1.1" 200 87695
+WARNING 2019-05-28 15:45:21,871 log 228 Not Found: /admin/courses/6/
+WARNING 2019-05-28 15:45:21,873 basehttp 124 "PUT /admin/courses/6/ HTTP/1.1" 404 8495
+INFO 2019-05-28 15:47:32,945 basehttp 124 "GET /admin/courses/6 HTTP/1.1" 200 16040
+INFO 2019-05-28 15:47:32,987 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:47:33,011 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:47:33,023 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:47:33,040 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:47:33,070 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:47:33,091 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:47:33,107 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:47:33,135 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:47:33,136 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:47:33,138 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:47:33,146 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:47:33,155 basehttp 124 "GET /static/plugins/markdown_editor/css/editormd.css HTTP/1.1" 200 82624
+INFO 2019-05-28 15:47:33,177 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:47:33,187 basehttp 124 "GET /static/js/admin/course/courses_pub.js HTTP/1.1" 200 9068
+INFO 2019-05-28 15:47:33,223 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-28 15:47:33,244 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:47:33,286 basehttp 124 "GET /static/node_modules/%40baiducloud/sdk/dist/baidubce-sdk.bundle.min.js HTTP/1.1" 200 558429
+INFO 2019-05-28 15:47:33,288 basehttp 124 "GET /static/plugins/markdown_editor/editormd.js HTTP/1.1" 200 163324
+INFO 2019-05-28 15:47:33,308 basehttp 124 "GET /static/plugins/markdown_editor/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+INFO 2019-05-28 15:47:33,439 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:47:33,483 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:47:33,706 basehttp 124 "GET /static/plugins/markdown_editor/examples/test.md HTTP/1.1" 200 0
+INFO 2019-05-28 15:47:33,739 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.css HTTP/1.1" 200 5312
+INFO 2019-05-28 15:47:33,756 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/dialog/dialog.css HTTP/1.1" 200 502
+INFO 2019-05-28 15:47:33,767 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/search/matchesonscrollbar.css HTTP/1.1" 200 188
+INFO 2019-05-28 15:47:33,774 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/fold/foldgutter.css HTTP/1.1" 200 435
+INFO 2019-05-28 15:47:33,799 basehttp 124 "GET /static/plugins/markdown_editor/images/loading.gif HTTP/1.1" 200 7726
+INFO 2019-05-28 15:47:33,815 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 15:47:33,827 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.js HTTP/1.1" 200 221231
+INFO 2019-05-28 15:47:33,878 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/modes.min.js HTTP/1.1" 200 205547
+INFO 2019-05-28 15:47:33,919 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addons.min.js HTTP/1.1" 200 39288
+INFO 2019-05-28 15:47:34,007 basehttp 124 "GET /static/plugins/markdown_editor/lib/marked.min.js HTTP/1.1" 200 19256
+INFO 2019-05-28 15:47:34,049 basehttp 124 "GET /static/plugins/markdown_editor/lib/prettify.min.js HTTP/1.1" 200 17973
+INFO 2019-05-28 15:47:34,123 basehttp 124 "GET /static/plugins/markdown_editor/lib/raphael.min.js HTTP/1.1" 200 92705
+INFO 2019-05-28 15:47:34,150 basehttp 124 "GET /static/plugins/markdown_editor/lib/underscore.min.js HTTP/1.1" 200 16487
+INFO 2019-05-28 15:47:34,167 basehttp 124 "GET /static/plugins/markdown_editor/lib/flowchart.min.js HTTP/1.1" 200 19807
+INFO 2019-05-28 15:47:34,177 basehttp 124 "GET /static/plugins/markdown_editor/lib/jquery.flowchart.min.js HTTP/1.1" 200 1396
+INFO 2019-05-28 15:47:34,202 basehttp 124 "GET /static/plugins/markdown_editor/lib/sequence-diagram.min.js HTTP/1.1" 200 87695
+INFO 2019-05-28 15:47:39,266 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 11159
+INFO 2019-05-28 15:47:39,315 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:47:39,323 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:47:39,383 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:47:39,398 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:47:39,394 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:47:39,420 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:47:39,435 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:47:39,437 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:47:39,439 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:47:39,440 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:47:39,468 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:47:39,502 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:47:39,504 basehttp 124 "GET /static/js/admin/course/courses_manage.js HTTP/1.1" 200 2140
+INFO 2019-05-28 15:47:39,511 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:47:39,519 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:47:39,583 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:47:47,148 basehttp 124 "GET /admin/courses/6 HTTP/1.1" 200 16040
+INFO 2019-05-28 15:47:47,438 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+WARNING 2019-05-28 15:47:53,842 log 228 Not Found: /admin/courses/6/
+WARNING 2019-05-28 15:47:53,849 basehttp 124 "PUT /admin/courses/6/ HTTP/1.1" 404 8495
+INFO 2019-05-28 15:47:56,856 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+WARNING 2019-05-28 15:49:58,674 log 228 Not Found: /admin/courses/6/
+WARNING 2019-05-28 15:49:58,676 basehttp 124 "PUT /admin/courses/6/ HTTP/1.1" 404 8495
+INFO 2019-05-28 15:50:45,353 basehttp 124 "GET /admin/courses/6 HTTP/1.1" 301 0
+INFO 2019-05-28 15:50:45,481 basehttp 124 "GET /admin/courses/6/ HTTP/1.1" 200 16040
+INFO 2019-05-28 15:50:45,542 basehttp 124 "GET /static/css/admin/base/font-awesome.min.css HTTP/1.1" 200 31000
+INFO 2019-05-28 15:50:45,563 basehttp 124 "GET /static/css/admin/base/ionicons.min.css HTTP/1.1" 200 51284
+INFO 2019-05-28 15:50:45,576 basehttp 124 "GET /static/css/admin/base/skin-blue.min.css HTTP/1.1" 200 3156
+INFO 2019-05-28 15:50:45,592 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2019-05-28 15:50:45,584 basehttp 124 "GET /static/css/admin/base/AdminLTE.min.css HTTP/1.1" 200 91501
+INFO 2019-05-28 15:50:45,627 basehttp 124 "GET /static/plugins/markdown_editor/css/editormd.css HTTP/1.1" 200 82624
+INFO 2019-05-28 15:50:45,643 basehttp 124 "GET /static/js/admin/base/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2019-05-28 15:50:45,653 basehttp 124 "GET /static/js/admin/base/adminlte.min.js HTTP/1.1" 200 14717
+INFO 2019-05-28 15:50:45,658 basehttp 124 "GET /static/js/admin/base/jquery.min.js HTTP/1.1" 200 86927
+INFO 2019-05-28 15:50:45,659 basehttp 124 "GET /static/css/base/sweetalert.css HTTP/1.1" 200 25041
+INFO 2019-05-28 15:50:45,659 basehttp 124 "GET /static/js/base/message.js HTTP/1.1" 200 3570
+INFO 2019-05-28 15:50:45,674 basehttp 124 "GET /static/js/base/fsweetalert.js HTTP/1.1" 200 5808
+INFO 2019-05-28 15:50:45,688 basehttp 124 "GET /static/js/base/sweetalert.min.js HTTP/1.1" 200 16994
+INFO 2019-05-28 15:50:45,717 basehttp 124 "GET /static/js/admin/base/fqiniu.js HTTP/1.1" 200 2448
+INFO 2019-05-28 15:50:45,731 basehttp 124 "GET /static/plugins/markdown_editor/fonts/fontawesome-webfont.woff2?v=4.3.0 HTTP/1.1" 200 56780
+INFO 2019-05-28 15:50:45,735 basehttp 124 "GET /static/js/admin/course/courses_pub.js HTTP/1.1" 200 9068
+INFO 2019-05-28 15:50:45,736 basehttp 124 "GET /static/plugins/markdown_editor/editormd.js HTTP/1.1" 200 163324
+INFO 2019-05-28 15:50:45,749 basehttp 124 "GET /static/images/taka.jpg HTTP/1.1" 200 95742
+INFO 2019-05-28 15:50:45,764 basehttp 124 "GET /static/node_modules/%40baiducloud/sdk/dist/baidubce-sdk.bundle.min.js HTTP/1.1" 200 558429
+INFO 2019-05-28 15:50:45,820 basehttp 124 "GET /static/css/admin/base/bootstrap.min.css.map HTTP/1.1" 200 540434
+INFO 2019-05-28 15:50:45,857 basehttp 124 "GET /static/css/admin/fonts/fontawesome-webfont.woff2?v=4.7.0 HTTP/1.1" 200 77160
+INFO 2019-05-28 15:50:46,055 basehttp 124 "GET /static/plugins/markdown_editor/examples/test.md HTTP/1.1" 200 0
+INFO 2019-05-28 15:50:46,080 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.css HTTP/1.1" 200 5312
+INFO 2019-05-28 15:50:46,091 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/dialog/dialog.css HTTP/1.1" 200 502
+INFO 2019-05-28 15:50:46,092 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/search/matchesonscrollbar.css HTTP/1.1" 200 188
+INFO 2019-05-28 15:50:46,108 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addon/fold/foldgutter.css HTTP/1.1" 200 435
+INFO 2019-05-28 15:50:46,124 basehttp 124 "GET /static/plugins/markdown_editor/images/loading.gif HTTP/1.1" 200 7726
+INFO 2019-05-28 15:50:46,130 basehttp 124 "GET /admin/token/ HTTP/1.1" 200 141
+INFO 2019-05-28 15:50:46,146 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/codemirror.min.js HTTP/1.1" 200 221231
+INFO 2019-05-28 15:50:46,192 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/modes.min.js HTTP/1.1" 200 205547
+INFO 2019-05-28 15:50:46,233 basehttp 124 "GET /static/plugins/markdown_editor/lib/codemirror/addons.min.js HTTP/1.1" 200 39288
+INFO 2019-05-28 15:50:46,292 basehttp 124 "GET /static/plugins/markdown_editor/lib/marked.min.js HTTP/1.1" 200 19256
+INFO 2019-05-28 15:50:46,318 basehttp 124 "GET /static/plugins/markdown_editor/lib/prettify.min.js HTTP/1.1" 200 17973
+INFO 2019-05-28 15:50:46,385 basehttp 124 "GET /static/plugins/markdown_editor/lib/raphael.min.js HTTP/1.1" 200 92705
+INFO 2019-05-28 15:50:46,408 basehttp 124 "GET /static/plugins/markdown_editor/lib/underscore.min.js HTTP/1.1" 200 16487
+INFO 2019-05-28 15:50:46,425 basehttp 124 "GET /static/plugins/markdown_editor/lib/flowchart.min.js HTTP/1.1" 200 19807
+INFO 2019-05-28 15:50:46,436 basehttp 124 "GET /static/plugins/markdown_editor/lib/jquery.flowchart.min.js HTTP/1.1" 200 1396
+INFO 2019-05-28 15:50:46,447 basehttp 124 "GET /static/plugins/markdown_editor/lib/sequence-diagram.min.js HTTP/1.1" 200 87695
+INFO 2019-05-28 15:50:54,023 basehttp 124 "PUT /admin/courses/6/ HTTP/1.1" 200 78
+INFO 2019-05-28 15:50:58,193 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 11165
+INFO 2019-05-28 20:08:10,424 basehttp 124 "GET /admin/courses/ HTTP/1.1" 200 11178
+INFO 2019-05-28 20:08:10,463 basehttp 124 "GET /static/js/admin/course/courses_manage.js HTTP/1.1" 304 0
+INFO 2019-05-28 20:08:11,489 basehttp 124 "GET /admin/groups/ HTTP/1.1" 200 10368
+WARNING 2019-05-28 20:08:11,517 basehttp 124 "GET /static/js/admin/user/groups_manage.js HTTP/1.1" 404 1714
+WARNING 2019-05-28 20:08:11,562 basehttp 124 "GET /static/js/admin/user/groups_manage.js HTTP/1.1" 404 1714
